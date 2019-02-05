@@ -7,13 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		207C3A6B22041D5D008AC3D1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C3A6A22041D5D008AC3D1 /* TestViewController.swift */; };
+		20B133C22207C920002CEF43 /* old_AzureFaceRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B133C12207C920002CEF43 /* old_AzureFaceRecognition.swift */; };
+		20B133C72207FD83002CEF43 /* JsonArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B133C62207FD83002CEF43 /* JsonArrays.swift */; };
+		20B133C922096E9B002CEF43 /* Family1-Dad1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 20B133C822096E9B002CEF43 /* Family1-Dad1.jpg */; };
+		20B133CB2209B96A002CEF43 /* Family1-Dad2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 20B133CA2209B969002CEF43 /* Family1-Dad2.jpg */; };
+		20B133CD2209DB20002CEF43 /* AzureFaceRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B133CC2209DB20002CEF43 /* AzureFaceRecognition.swift */; };
 		20B6286221E0828800A26DA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B6286121E0828800A26DA4 /* AppDelegate.swift */; };
-		20B6286421E0828800A26DA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B6286321E0828800A26DA4 /* ViewController.swift */; };
+		20B6286421E0828800A26DA4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B6286321E0828800A26DA4 /* LoginViewController.swift */; };
 		20B6286721E0828800A26DA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20B6286521E0828800A26DA4 /* Main.storyboard */; };
 		20B6286921E0828A00A26DA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20B6286821E0828A00A26DA4 /* Assets.xcassets */; };
 		20B6286C21E0828A00A26DA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20B6286A21E0828A00A26DA4 /* LaunchScreen.storyboard */; };
 		20B6287721E0828A00A26DA4 /* ou_fypTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B6287621E0828A00A26DA4 /* ou_fypTests.swift */; };
 		20B6288221E0828A00A26DA4 /* ou_fypUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B6288121E0828A00A26DA4 /* ou_fypUITests.swift */; };
+		20B8008522009EAB0022D193 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B8008422009EAB0022D193 /* RegisterViewController.swift */; };
+		20B800882202A6F50022D193 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20B800872202A6F40022D193 /* GoogleService-Info.plist */; };
+		5D76A5310E4FECAE77374648 /* Pods_ou_fypUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE266AD57840F5DA083835F /* Pods_ou_fypUITests.framework */; };
+		A834A1BCEE7E974A5ED86F06 /* Pods_ou_fyp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378A0C20BBB9A4A26BB5C098 /* Pods_ou_fyp.framework */; };
+		EC07F48962FA5985EDE9169B /* Pods_ou_fypTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C845A569DEE39BA9DA45A8 /* Pods_ou_fypTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +45,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		207C3A6A22041D5D008AC3D1 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		20B133C12207C920002CEF43 /* old_AzureFaceRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = old_AzureFaceRecognition.swift; sourceTree = "<group>"; };
+		20B133C62207FD83002CEF43 /* JsonArrays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonArrays.swift; sourceTree = "<group>"; };
+		20B133C822096E9B002CEF43 /* Family1-Dad1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Family1-Dad1.jpg"; sourceTree = "<group>"; };
+		20B133CA2209B969002CEF43 /* Family1-Dad2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Family1-Dad2.jpg"; sourceTree = "<group>"; };
+		20B133CC2209DB20002CEF43 /* AzureFaceRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AzureFaceRecognition.swift; sourceTree = "<group>"; };
 		20B6285E21E0828800A26DA4 /* ou.fyp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ou.fyp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20B6286121E0828800A26DA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		20B6286321E0828800A26DA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		20B6286321E0828800A26DA4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		20B6286621E0828800A26DA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		20B6286821E0828A00A26DA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20B6286B21E0828A00A26DA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +64,17 @@
 		20B6287D21E0828A00A26DA4 /* ou.fypUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ou.fypUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20B6288121E0828A00A26DA4 /* ou_fypUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ou_fypUITests.swift; sourceTree = "<group>"; };
 		20B6288321E0828A00A26DA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20B8008422009EAB0022D193 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		20B800872202A6F40022D193 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		378A0C20BBB9A4A26BB5C098 /* Pods_ou_fyp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ou_fyp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		588E0F9DB4CB5874B1B50A5A /* Pods-ou.fypUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ou.fypUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ou.fypUITests/Pods-ou.fypUITests.release.xcconfig"; sourceTree = "<group>"; };
+		59C92C5D221629152ACEA84F /* Pods-ou.fyp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ou.fyp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ou.fyp/Pods-ou.fyp.debug.xcconfig"; sourceTree = "<group>"; };
+		67810C55C5B8AB6A703004D4 /* Pods-ou.fypTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ou.fypTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ou.fypTests/Pods-ou.fypTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A160D0AD89B44F3C62A664D2 /* Pods-ou.fypTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ou.fypTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ou.fypTests/Pods-ou.fypTests.release.xcconfig"; sourceTree = "<group>"; };
+		AAE266AD57840F5DA083835F /* Pods_ou_fypUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ou_fypUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2C3F3E2CFBBF8551DFD6FFE /* Pods-ou.fyp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ou.fyp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ou.fyp/Pods-ou.fyp.release.xcconfig"; sourceTree = "<group>"; };
+		D7C845A569DEE39BA9DA45A8 /* Pods_ou_fypTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ou_fypTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6B65BB9C2B496FC4B924419 /* Pods-ou.fypUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ou.fypUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ou.fypUITests/Pods-ou.fypUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A834A1BCEE7E974A5ED86F06 /* Pods_ou_fyp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC07F48962FA5985EDE9169B /* Pods_ou_fypTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D76A5310E4FECAE77374648 /* Pods_ou_fypUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +112,8 @@
 				20B6287521E0828A00A26DA4 /* ou.fypTests */,
 				20B6288021E0828A00A26DA4 /* ou.fypUITests */,
 				20B6285F21E0828800A26DA4 /* Products */,
+				F3F5F0345502AFB52AB73E96 /* Pods */,
+				3D4818F03A646C870529A096 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,11 +131,19 @@
 			isa = PBXGroup;
 			children = (
 				20B6286121E0828800A26DA4 /* AppDelegate.swift */,
-				20B6286321E0828800A26DA4 /* ViewController.swift */,
+				20B6286321E0828800A26DA4 /* LoginViewController.swift */,
+				20B8008422009EAB0022D193 /* RegisterViewController.swift */,
+				20B133CC2209DB20002CEF43 /* AzureFaceRecognition.swift */,
+				20B133C12207C920002CEF43 /* old_AzureFaceRecognition.swift */,
+				20B133C62207FD83002CEF43 /* JsonArrays.swift */,
+				207C3A6A22041D5D008AC3D1 /* TestViewController.swift */,
 				20B6286521E0828800A26DA4 /* Main.storyboard */,
 				20B6286821E0828A00A26DA4 /* Assets.xcassets */,
+				20B133C822096E9B002CEF43 /* Family1-Dad1.jpg */,
+				20B133CA2209B969002CEF43 /* Family1-Dad2.jpg */,
 				20B6286A21E0828A00A26DA4 /* LaunchScreen.storyboard */,
 				20B6286D21E0828A00A26DA4 /* Info.plist */,
+				20B800872202A6F40022D193 /* GoogleService-Info.plist */,
 			);
 			path = ou.fyp;
 			sourceTree = "<group>";
@@ -125,6 +166,29 @@
 			path = ou.fypUITests;
 			sourceTree = "<group>";
 		};
+		3D4818F03A646C870529A096 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				378A0C20BBB9A4A26BB5C098 /* Pods_ou_fyp.framework */,
+				D7C845A569DEE39BA9DA45A8 /* Pods_ou_fypTests.framework */,
+				AAE266AD57840F5DA083835F /* Pods_ou_fypUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F3F5F0345502AFB52AB73E96 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				59C92C5D221629152ACEA84F /* Pods-ou.fyp.debug.xcconfig */,
+				B2C3F3E2CFBBF8551DFD6FFE /* Pods-ou.fyp.release.xcconfig */,
+				67810C55C5B8AB6A703004D4 /* Pods-ou.fypTests.debug.xcconfig */,
+				A160D0AD89B44F3C62A664D2 /* Pods-ou.fypTests.release.xcconfig */,
+				F6B65BB9C2B496FC4B924419 /* Pods-ou.fypUITests.debug.xcconfig */,
+				588E0F9DB4CB5874B1B50A5A /* Pods-ou.fypUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +196,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 20B6288621E0828A00A26DA4 /* Build configuration list for PBXNativeTarget "ou.fyp" */;
 			buildPhases = (
+				353F6DD1AAD2A434BF479A90 /* [CP] Check Pods Manifest.lock */,
 				20B6285A21E0828800A26DA4 /* Sources */,
 				20B6285B21E0828800A26DA4 /* Frameworks */,
 				20B6285C21E0828800A26DA4 /* Resources */,
+				E7C44B97653D423A74A173A2 /* [CP] Embed Pods Frameworks */,
+				2A92D5871ED7975437E03AB2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,6 +216,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 20B6288921E0828A00A26DA4 /* Build configuration list for PBXNativeTarget "ou.fypTests" */;
 			buildPhases = (
+				AF3A63881CE4DD439E963538 /* [CP] Check Pods Manifest.lock */,
 				20B6286E21E0828A00A26DA4 /* Sources */,
 				20B6286F21E0828A00A26DA4 /* Frameworks */,
 				20B6287021E0828A00A26DA4 /* Resources */,
@@ -167,6 +235,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 20B6288C21E0828A00A26DA4 /* Build configuration list for PBXNativeTarget "ou.fypUITests" */;
 			buildPhases = (
+				3B5BB9D94A01C3D6A54D54B8 /* [CP] Check Pods Manifest.lock */,
 				20B6287921E0828A00A26DA4 /* Sources */,
 				20B6287A21E0828A00A26DA4 /* Frameworks */,
 				20B6287B21E0828A00A26DA4 /* Resources */,
@@ -230,8 +299,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				20B6286C21E0828A00A26DA4 /* LaunchScreen.storyboard in Resources */,
+				20B800882202A6F50022D193 /* GoogleService-Info.plist in Resources */,
 				20B6286921E0828A00A26DA4 /* Assets.xcassets in Resources */,
 				20B6286721E0828800A26DA4 /* Main.storyboard in Resources */,
+				20B133CB2209B96A002CEF43 /* Family1-Dad2.jpg in Resources */,
+				20B133C922096E9B002CEF43 /* Family1-Dad1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,13 +323,143 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2A92D5871ED7975437E03AB2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ou.fyp/Pods-ou.fyp-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ou.fyp/Pods-ou.fyp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		353F6DD1AAD2A434BF479A90 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ou.fyp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3B5BB9D94A01C3D6A54D54B8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ou.fypUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF3A63881CE4DD439E963538 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ou.fypTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7C44B97653D423A74A173A2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ou.fyp/Pods-ou.fyp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AutoKeyboard/AutoKeyboard.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework",
+				"${BUILT_PRODUCTS_DIR}/Networking/Networking.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SPPermission/SPPermission.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AutoKeyboard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageRow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Networking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPPermission.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ou.fyp/Pods-ou.fyp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		20B6285A21E0828800A26DA4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20B6286421E0828800A26DA4 /* ViewController.swift in Sources */,
+				20B133CD2209DB20002CEF43 /* AzureFaceRecognition.swift in Sources */,
+				20B8008522009EAB0022D193 /* RegisterViewController.swift in Sources */,
+				20B6286421E0828800A26DA4 /* LoginViewController.swift in Sources */,
+				207C3A6B22041D5D008AC3D1 /* TestViewController.swift in Sources */,
+				20B133C22207C920002CEF43 /* old_AzureFaceRecognition.swift in Sources */,
 				20B6286221E0828800A26DA4 /* AppDelegate.swift in Sources */,
+				20B133C72207FD83002CEF43 /* JsonArrays.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +632,7 @@
 		};
 		20B6288721E0828A00A26DA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59C92C5D221629152ACEA84F /* Pods-ou.fyp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -448,6 +651,7 @@
 		};
 		20B6288821E0828A00A26DA4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2C3F3E2CFBBF8551DFD6FFE /* Pods-ou.fyp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -466,6 +670,7 @@
 		};
 		20B6288A21E0828A00A26DA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67810C55C5B8AB6A703004D4 /* Pods-ou.fypTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -487,6 +692,7 @@
 		};
 		20B6288B21E0828A00A26DA4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A160D0AD89B44F3C62A664D2 /* Pods-ou.fypTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +714,7 @@
 		};
 		20B6288D21E0828A00A26DA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6B65BB9C2B496FC4B924419 /* Pods-ou.fypUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -528,6 +735,7 @@
 		};
 		20B6288E21E0828A00A26DA4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 588E0F9DB4CB5874B1B50A5A /* Pods-ou.fypUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
