@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		204D20C5220BE0A300B93BB1 /* many_face.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 204D20C4220BE0A300B93BB1 /* many_face.jpg */; };
+		204D20C7220BEBC000B93BB1 /* no_face.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 204D20C6220BEBC000B93BB1 /* no_face.jpg */; };
 		207C3A6B22041D5D008AC3D1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C3A6A22041D5D008AC3D1 /* TestViewController.swift */; };
-		20B133C22207C920002CEF43 /* old_AzureFaceRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B133C12207C920002CEF43 /* old_AzureFaceRecognition.swift */; };
-		20B133C72207FD83002CEF43 /* JsonArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B133C62207FD83002CEF43 /* JsonArrays.swift */; };
-		20B133C922096E9B002CEF43 /* Family1-Dad1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 20B133C822096E9B002CEF43 /* Family1-Dad1.jpg */; };
-		20B133CB2209B96A002CEF43 /* Family1-Dad2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 20B133CA2209B969002CEF43 /* Family1-Dad2.jpg */; };
+		20B133C922096E9B002CEF43 /* one_face.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 20B133C822096E9B002CEF43 /* one_face.jpg */; };
 		20B133CD2209DB20002CEF43 /* AzureFaceRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B133CC2209DB20002CEF43 /* AzureFaceRecognition.swift */; };
 		20B6286221E0828800A26DA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B6286121E0828800A26DA4 /* AppDelegate.swift */; };
 		20B6286421E0828800A26DA4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B6286321E0828800A26DA4 /* LoginViewController.swift */; };
@@ -45,11 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		204D20C4220BE0A300B93BB1 /* many_face.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = many_face.jpg; sourceTree = "<group>"; };
+		204D20C6220BEBC000B93BB1 /* no_face.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = no_face.jpg; sourceTree = "<group>"; };
 		207C3A6A22041D5D008AC3D1 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
-		20B133C12207C920002CEF43 /* old_AzureFaceRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = old_AzureFaceRecognition.swift; sourceTree = "<group>"; };
-		20B133C62207FD83002CEF43 /* JsonArrays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonArrays.swift; sourceTree = "<group>"; };
-		20B133C822096E9B002CEF43 /* Family1-Dad1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Family1-Dad1.jpg"; sourceTree = "<group>"; };
-		20B133CA2209B969002CEF43 /* Family1-Dad2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Family1-Dad2.jpg"; sourceTree = "<group>"; };
+		20B133C822096E9B002CEF43 /* one_face.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = one_face.jpg; sourceTree = "<group>"; };
 		20B133CC2209DB20002CEF43 /* AzureFaceRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AzureFaceRecognition.swift; sourceTree = "<group>"; };
 		20B6285E21E0828800A26DA4 /* ou.fyp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ou.fyp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20B6286121E0828800A26DA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,13 +132,12 @@
 				20B6286321E0828800A26DA4 /* LoginViewController.swift */,
 				20B8008422009EAB0022D193 /* RegisterViewController.swift */,
 				20B133CC2209DB20002CEF43 /* AzureFaceRecognition.swift */,
-				20B133C12207C920002CEF43 /* old_AzureFaceRecognition.swift */,
-				20B133C62207FD83002CEF43 /* JsonArrays.swift */,
 				207C3A6A22041D5D008AC3D1 /* TestViewController.swift */,
 				20B6286521E0828800A26DA4 /* Main.storyboard */,
 				20B6286821E0828A00A26DA4 /* Assets.xcassets */,
-				20B133C822096E9B002CEF43 /* Family1-Dad1.jpg */,
-				20B133CA2209B969002CEF43 /* Family1-Dad2.jpg */,
+				20B133C822096E9B002CEF43 /* one_face.jpg */,
+				204D20C4220BE0A300B93BB1 /* many_face.jpg */,
+				204D20C6220BEBC000B93BB1 /* no_face.jpg */,
 				20B6286A21E0828A00A26DA4 /* LaunchScreen.storyboard */,
 				20B6286D21E0828A00A26DA4 /* Info.plist */,
 				20B800872202A6F40022D193 /* GoogleService-Info.plist */,
@@ -300,10 +297,11 @@
 			files = (
 				20B6286C21E0828A00A26DA4 /* LaunchScreen.storyboard in Resources */,
 				20B800882202A6F50022D193 /* GoogleService-Info.plist in Resources */,
+				204D20C5220BE0A300B93BB1 /* many_face.jpg in Resources */,
 				20B6286921E0828A00A26DA4 /* Assets.xcassets in Resources */,
 				20B6286721E0828800A26DA4 /* Main.storyboard in Resources */,
-				20B133CB2209B96A002CEF43 /* Family1-Dad2.jpg in Resources */,
-				20B133C922096E9B002CEF43 /* Family1-Dad1.jpg in Resources */,
+				20B133C922096E9B002CEF43 /* one_face.jpg in Resources */,
+				204D20C7220BEBC000B93BB1 /* no_face.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,9 +455,7 @@
 				20B8008522009EAB0022D193 /* RegisterViewController.swift in Sources */,
 				20B6286421E0828800A26DA4 /* LoginViewController.swift in Sources */,
 				207C3A6B22041D5D008AC3D1 /* TestViewController.swift in Sources */,
-				20B133C22207C920002CEF43 /* old_AzureFaceRecognition.swift in Sources */,
 				20B6286221E0828800A26DA4 /* AppDelegate.swift in Sources */,
-				20B133C72207FD83002CEF43 /* JsonArrays.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -38,43 +38,29 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
             if let user = user {
                 print("✉️: ", user.email!, "is logined")
                 let usersRef =  Firestore.firestore().collection("users").document(user.uid)
-
-//                usersRef.getDocument { (document, error) in
-//                    if let document = document, document.exists {
-//                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-//                        print(document["name"]!)
-//                        print(document["studentID"]!)
-//                        print(document["studentID"]! as! String == "")
-//                        print("Document data: \(dataDescription)")
-//                    } else {
-//                        print("Document does not exist")
-//                    }
-//                }
-                
                 
                 usersRef.getDocument { (document, error) in
                     if let document = document, document.exists {
-                        // firestore(/users/userid) 有user 資料
-                        if(document["studentID"] == nil){
-                            //User 未設定Student ID
-                            print("User 未設定Student ID")
-                            self.performSegue(withIdentifier: "LoginToReg", sender: self)
-                        }
+                        
+                        self.performSegue(withIdentifier: "LoginToMain", sender: self)
                     } else {
                         //firestore(/users/userid) 未有user 資料
                         //init user 寫入user data to firestore
-                        usersRef.setData([
-                            "email": user.email!,
-                            "name": user.displayName!,
-                            "faces": []
-                        ]) { err in
-                            if let err = err {
-                                print("Error writing document: \(err)")
-                            } else {
-                                print("寫入user data to firestore")
-                                self.performSegue(withIdentifier: "LoginToReg", sender: self)
-                            }
-                        }
+//                        usersRef.setData([
+//                            "email": user.email!,
+//                            "name": user.displayName!,
+//                            "faces": []
+//                        ]) { err in
+//                            if let err = err {
+//                                print("Error writing document: \(err)")
+//                            } else {
+//                                print("寫入user data to firestore")
+//                                self.performSegue(withIdentifier: "LoginToReg", sender: self)
+//                            }
+//                        }
+
+                        self.performSegue(withIdentifier: "LoginToReg", sender: self)
+
                     }
                 }
                 

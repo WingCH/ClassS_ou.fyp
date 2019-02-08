@@ -10,22 +10,126 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import Alamofire
+import SwiftyJSON
 
 class TestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let image = UIImage(named: "Family1-Dad1.jpg")
-//        AzureFaceRecognition.shared.faceDetect(faceImageData: (image?.jpegData(compressionQuality: 1))!, result: {result in
-//            print(result)
-//        })
-        AzureFaceRecognition.shared.faceDetect(faceImageData: (image?.jpegData(compressionQuality: 1))!, result: {result in
-            
-        })
-        
-//        AzureFaceRecognition.shared.faceDetect_3()
-//        AzureFaceRecognition.shared.listPersonGroup()
+        let image = UIImage(named: "no_face.jpg")
 
+        //Face - Detect
+//        AzureFaceRecognition.shared.faceDetect(faceImageData: (image?.jpegData(compressionQuality: 1))!, result: {data, error in
+//
+//            guard error == nil else {
+//                print(error!)
+//                return
+//            }
+//
+//            guard data!["error"].exists() == false else {
+//                print(data!["error"])
+//                return
+//            }
+//
+//            guard data!.count == 1 else{
+//                print("圖片有\(data!.count)個人臉，只容許有一張人臉，請重拍")
+//                return
+//            }
+//
+//            if let faceId = data![0]["faceId"].string {
+//                print(faceId)
+//            }
+//        })
+        
+        //PersonGroup Person - Create
+//        AzureFaceRecognition.shared.personCreate(name: "TEST", userData: "", result: {data, error in
+//
+//            guard error == nil else {
+//                print(error!)
+//                return
+//            }
+//
+//            guard data!["error"].exists() == false else {
+//                print(data!["error"])
+//                return
+//            }
+//
+//            print(data!["personId"])
+//
+//
+//
+//        })
+    
+        
+        
+        //PersonGroup Person - List
+//        AzureFaceRecognition.shared.personsList(result: {data, error in
+//            print(data!)
+//            print(error as Any)
+//        })
+    
+        //PersonGroup Person - Delete
+//        AzureFaceRecognition.shared.personsDelete(personId: "bc660c31-030a-4354-a456-acc6c94d0eb0", result: { error in
+//            if error == nil{
+//                print("sccuess")
+//            }
+//        })
+        
+        
+        
+//      PersonGroup Person - Add Face
+//        AzureFaceRecognition.shared.personAddFace(personId: "f5311f19-8d03-41d3-b29c-488213ca70b5", faceImageData: (image?.jpegData(compressionQuality: 1))!, result: {data, error in
+//            guard error == nil else {
+//                print(error!)
+//                return
+//            }
+//
+//            guard data!["error"].exists() == false else {
+//                print(data!["error"])
+//                return
+//            }
+//
+//            if let faceId = data![0]["persistedFaceId"].string {
+//                print(faceId)
+//            }
+//        })
+        
+        //PersonGroup - Train
+//        AzureFaceRecognition.shared.personGroupTrain(result: {error in
+//            if error == nil{
+//                print("PersonGroup - Train called")
+//            }
+//        })
+        
+        
+        //PersonGroup - Get Training Status
+//        AzureFaceRecognition.shared.personGroupTrainingStatus(result: {data, error in
+//            guard error == nil else {
+//                print(error!)
+//                return
+//            }
+//
+//            guard data!["error"].exists() == false else {
+//                print(data!["error"])
+//                return
+//            }
+//            print(data!)
+//        })
+        
+        //Face - Identify
+//        AzureFaceRecognition.shared.faceIdentify(faceIds: ["9b0ebd9e-e70a-4191-9d48-09f94fd0ee1e"], maxNumOfCandidatesReturned: 1, result: { data, error in
+//            guard error == nil else {
+//                print(error!)
+//                return
+//            }
+//
+//            guard data!["error"].exists() == false else {
+//                print(data!["error"])
+//                return
+//            }
+//            print(data)
+//        })
+        
     }
     
     
