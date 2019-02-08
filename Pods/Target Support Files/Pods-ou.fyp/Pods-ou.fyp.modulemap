@@ -1,0 +1,6 @@
+framework module Pods_ou_fyp {
+  umbrella header "Pods-ou.fyp-umbrella.h"
+
+  export *
+  module * { export * }
+}

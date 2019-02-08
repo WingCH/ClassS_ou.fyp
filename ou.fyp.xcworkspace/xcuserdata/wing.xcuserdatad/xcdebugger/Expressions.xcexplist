@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "closure #1 in AzureFaceRecognition.faceDetect_3():AzureFaceRecognition.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in AzureFaceRecognition.faceDetect(faceImageData:result:):AzureFaceRecognition.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TestViewController.viewDidLoad():TestViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in AzureFaceRecognition.addPersonFace(personId:faceImageData:persistedFaceId:):AzureFaceRecognition.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #3 in closure #2 in closure #8 in RegisterViewController.viewDidLoad():RegisterViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #2 in LoginViewController.viewWillAppear(_:):LoginViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #2 in LoginViewController.viewWillAppear(_:):LoginViewController.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
