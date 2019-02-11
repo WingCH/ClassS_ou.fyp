@@ -6,7 +6,6 @@ target 'ou.fyp' do
   use_frameworks!
 
   # Pods for ou.fyp
-  pod 'Alamofire', '~> 4.8.0'
   pod 'SwiftyJSON', '~> 4.0'
   pod 'SPPermission'
   pod 'AutoKeyboard'
@@ -14,9 +13,13 @@ target 'ou.fyp' do
   pod 'ImageRow', '~> 3.0'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
-  pod 'GoogleSignIn'
   pod 'Firebase/Firestore'
-  pod 'Networking', '~> 4'
+  pod 'Firebase/Storage'
+  pod 'GoogleSignIn'
+  pod "AsyncSwift"
+  pod 'NVActivityIndicatorView'
+
+
   
 
 

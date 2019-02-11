@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A02B9D73BAE16B79E5D9D03178DEE631"
+               BlueprintIdentifier = "4031782EC47584B9ECB4724502BC6D4A"
                BlueprintName = "SPPermission"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "SPPermission.framework">

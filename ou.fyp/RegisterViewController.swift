@@ -10,6 +10,10 @@ import UIKit
 import Eureka
 import ImageRow
 import Firebase
+import Async
+import NVActivityIndicatorView
+import FirebaseStorage
+
 
 class Person {
     
@@ -23,27 +27,30 @@ class Person {
         }
     }
     
+    
     var personId: String?
+    var persistedFaceIds: [String:String]
+    
     
     init() {
         self.authID = (Auth.auth().currentUser?.uid)!
         self.authEmail = (Auth.auth().currentUser?.email)!
         self.authName = (Auth.auth().currentUser?.displayName)!
+        self.persistedFaceIds = [:]
     }
     
 }
 
-class RegisterViewController: FormViewController {
+class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
     
-
-    var personId = ""
+    
+    let person = Person()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // show NavigationBar
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-        let person = Person()
-
         //Error message style
         LabelRow.defaultCellUpdate = { cell, row in
             cell.contentView.backgroundColor = .red
@@ -52,6 +59,7 @@ class RegisterViewController: FormViewController {
             cell.textLabel?.textAlignment = .right
             
         }
+        
         
         struct FormItems {
             static let AccountID = "Account ID"
@@ -108,27 +116,27 @@ class RegisterViewController: FormViewController {
                         }
                     }else{
                         
-                        person.studentID = row.value!
-
-
-//                            //方便upload相個陣用 懶做法
-//                            self.personId = data!["personId"].string!
-//
-//                            let usersRef =  Firestore.firestore().collection("users").document(accountID_row!.value!)
-//                            usersRef.updateData([
-//                                "studentID": row.value!,
-//                                "personId": data!["personId"].string!
-//                                ]) { err in
-//                                    if let err = err {
-//                                        print("Error writing document: \(err)")
-//                                    } else {
-//                                        print("成功寫入student ID to firestore")
-//                                        row.disabled = true
-//                                        row.evaluateDisabled()
-//                                        self.form.sectionBy(tag: "Face")?.hidden = false
-//                                        self.form.sectionBy(tag: "Face")?.evaluateHidden()
-//                                    }
-//                            }
+                        self.person.studentID = row.value!
+                        
+                        
+                        //                            //方便upload相個陣用 懶做法
+                        //                            self.personId = data!["personId"].string!
+                        //
+                        //                            let usersRef =  Firestore.firestore().collection("users").document(accountID_row!.value!)
+                        //                            usersRef.updateData([
+                        //                                "studentID": row.value!,
+                        //                                "personId": data!["personId"].string!
+                        //                                ]) { err in
+                        //                                    if let err = err {
+                        //                                        print("Error writing document: \(err)")
+                        //                                    } else {
+                        //                                        print("成功寫入student ID to firestore")
+                        //                                        row.disabled = true
+                        //                                        row.evaluateDisabled()
+                        //                                        self.form.sectionBy(tag: "Face")?.hidden = false
+                        //                                        self.form.sectionBy(tag: "Face")?.evaluateHidden()
+                        //                                    }
+                        //                            }
                         
                     }
             }
@@ -142,52 +150,55 @@ class RegisterViewController: FormViewController {
                                         return ButtonRow(){
                                             $0.title = "Add Face"
                                             $0.tag = "btn"
-//                                            $0.validationOptions = .validatesOnChangeAfterBlurred
+                                            //                                            $0.validationOptions = .validatesOnChangeAfterBlurred
                                         }
                                     }
-
-                                                                        
+                                    
+                                    
                                     $0.multivaluedRowToInsertAt = { index in
                                         
-//                                        let buttonRow  = self.form.rowBy(tag: "btn") as! ButtonRow
-//                                        buttonRow.disabled = true
-//                                        buttonRow.evaluateDisabled()
-
+                                        //                                        let buttonRow  = self.form.rowBy(tag: "btn") as! ButtonRow
+                                        //                                        buttonRow.disabled = true
+                                        //                                        buttonRow.evaluateDisabled()
+                                        
                                         return ImageRow() {
                                             $0.title = "Face \(index+1)"
                                             $0.sourceTypes = [.PhotoLibrary, .Camera]
                                             $0.clearAction = .yes(style: UIAlertAction.Style.destructive)
-//                                            $0.validationOptions = .validatesOnChangeAfterBlurred
+                                            //                                            $0.validationOptions = .validatesOnChangeAfterBlurred
                                             }
                                             
                                             .cellUpdate { cell, row in
-//                                                cell.accessoryView?.layer.cornerRadius = 17
-//                                                cell.accessoryView?.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+                                                //                                                cell.accessoryView?.layer.cornerRadius = 17
+                                                //                                                cell.accessoryView?.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
                                             }
                                             .onChange{ row in
                                                 print("onChange")
-
+                                                
                                                 guard row.value != nil else{
                                                     return
                                                 }
                                                 
                                                 let faceImage = row.value!
                                                 AzureFaceRecognition.shared.faceDetect(faceImageData: faceImage.jpegData(compressionQuality: 1)!, result: {data, error in
-                                                    print(data)
-                                                    print(error)
                                                     guard error == nil else {
                                                         print(error!)
                                                         return
                                                     }
-                                        
+                                                    
                                                     guard data!["error"].exists() == false else {
                                                         print(data!["error"])
+                                                        DispatchQueue.main.async {
+                                                            row.value = nil
+                                                            row.title = data!["error"]["message"].string
+                                                            row.reload()
+                                                        }
                                                         return
                                                     }
-                                        
+                                                    
                                                     guard data!.count == 1 else{
                                                         print("圖片有\(data!.count)個人臉，只容許有一張人臉，請重拍")
-
+                                                        
                                                         DispatchQueue.main.async {
                                                             row.value = nil
                                                             row.title = "請重拍,圖片有\(data!.count)個人臉，只容許有一張人臉"
@@ -195,7 +206,7 @@ class RegisterViewController: FormViewController {
                                                         }
                                                         return
                                                     }
-
+                                                    
                                                     if let _ = data![0]["faceId"].string {
                                                         DispatchQueue.main.async {
                                                             row.title = "Sccuess"
@@ -205,43 +216,142 @@ class RegisterViewController: FormViewController {
                                                         }
                                                     }
                                                 })
-//                                                row.title = "OK"
                                                 
-//                                                AzureFaceRecognition.shared.addPersonFace(personId: "af3ca566-60d5-40f4-9edd-6d329eaca443", faceImageData: faceImage.jpegData(compressionQuality: 0.5)!, persistedFaceId: { persistedFaceId in
-//                                                    print(persistedFaceId)
-//                                                    DispatchQueue.main.async {
-//                                                        row.disabled = true
-//                                                        row.evaluateDisabled()
-//                                                        row.reload()
-//                                                    }
-//
-//                                                })
-//                                            AzureFaceRecognition.shared.personAddFace(personId: self.personId, faceImageData: faceImage.jpegData(compressionQuality: 1)!, result: {data, error in
-//                                                    guard error == nil else {
-//                                                        print(error!)
-//                                                        return
-//                                                    }
-//
-//                                                    guard data!["error"].exists() == false else {
-//                                                        print(data!["error"])
-//                                                        return
-//                                                    }
-//                                                    DispatchQueue.main.async {
-//                                                        row.disabled = true
-//                                                        row.evaluateDisabled()
-//                                                        row.reload()
-//                                                    }
-//                                            })
+                                                //                                                AzureFaceRecognition.shared.addPersonFace(personId: "af3ca566-60d5-40f4-9edd-6d329eaca443", faceImageData: faceImage.jpegData(compressionQuality: 0.5)!, persistedFaceId: { persistedFaceId in
+                                                //                                                    print(persistedFaceId)
+                                                //                                                    DispatchQueue.main.async {
+                                                //                                                        row.disabled = true
+                                                //                                                        row.evaluateDisabled()
+                                                //                                                        row.reload()
+                                                //                                                    }
+                                                //
+                                                //                                                })
+                                                //                                            AzureFaceRecognition.shared.personAddFace(personId: self.personId, faceImageData: faceImage.jpegData(compressionQuality: 1)!, result: {data, error in
+                                                //                                                    guard error == nil else {
+                                                //                                                        print(error!)
+                                                //                                                        return
+                                                //                                                    }
+                                                //
+                                                //                                                    guard data!["error"].exists() == false else {
+                                                //                                                        print(data!["error"])
+                                                //                                                        return
+                                                //                                                    }
+                                                //                                                    DispatchQueue.main.async {
+                                                //                                                        row.disabled = true
+                                                //                                                        row.evaluateDisabled()
+                                                //                                                        row.reload()
+                                                //                                                    }
+                                                //                                            })
                                         }
-
+                                        
                                     }
         }
     }
     
     @IBAction func submit(_ sender: UIBarButtonItem) {
-        let formData = self.form.values()
-        let accountID = formData["AccountID"]
-        print(accountID!!)
         
+        // 1. PersonGroup Person - Create   ->  personId
+        // 2. PersonGroup Person - Add Face ->  persistedFaceId x3
+        // 3. Upload All data to Firestote
+        // 4. PersonGroup - Train
+        
+        let formData = self.form.values()
+        
+        var persistedFaceIds_Source:[String:UIImage] = [:]
+        let group = AsyncGroup()
+        group.enter()
+        DispatchQueue.global(qos: .userInitiated).async {
+            AzureFaceRecognition.shared.personCreate(name: self.person.studentID!, userData: self.person.authID, result:{ data, error in
+                
+                guard error == nil else {
+                    print(error!)
+                    return
+                }
+                
+                guard data!["error"].exists() == false else {
+                    print(data!["error"])
+                    return
+                }
+                self.person.personId = data!["personId"].string
+                group.leave()
+            })
+        }
+        group.wait()
+        
+        print("personCreate done")
+        
+        for (index, faceImageData) in (formData["Face"]!! as! [UIImage]).enumerated(){
+            print("第\(index)張相片上傳開始！！")
+            group.enter()
+            DispatchQueue.global(qos: .userInitiated).async {
+                AzureFaceRecognition.shared.personAddFace(personId: self.person.personId!, faceImageData: faceImageData.jpegData(compressionQuality: 1)!, result: {data, error in
+                    guard error == nil else {
+                        print(error!)
+                        return
+                    }
+                    
+                    guard data!["error"].exists() == false else {
+                        print(data!["error"])
+                        return
+                    }
+                    
+                    if let faceId = data!["persistedFaceId"].string {
+                        print("第\(index)張相上傳成功 :\(faceId)")
+                        persistedFaceIds_Source[faceId] = faceImageData
+                        self.person.persistedFaceIds["\(faceId)"] = ""
+                        group.leave()
+                        
+                        
+                    }
+                })
+            }
+        }
+        group.wait()
+        print("all done")
+        print(persistedFaceIds_Source)
+        print(self.person.persistedFaceIds)
+        
+        
+        for (key, value) in persistedFaceIds_Source {
+            print("Key: \(key) - Value: \(value)")
+                let riversRef = Storage.storage().reference().child("students").child(self.person.studentID!).child("\(key).jpg")
+                
+                riversRef.putData(value.jpegData(compressionQuality: 1)!, metadata: nil, completion: { metadata, error in
+                    print(metadata)
+                    print(error)
+                    guard metadata != nil else {
+                        // Uh-oh, an error occurred!
+                        return
+                    }
+                    riversRef.downloadURL { (url, error) in
+                        guard url != nil else {
+                            // Uh-oh, an error occurred!
+                            return
+                        }
+                        self.person.persistedFaceIds[key] = "\(url!)"
+                        print(self.person.persistedFaceIds)
+                    }
+                })
+        }
+
+        
+        //firestore(/users/userid) 未有user 資料
+        //init user 寫入user data to firestore
+        let usersRef =  Firestore.firestore().collection("users").document(self.person.authID)
+
+            usersRef.setData([
+                "email": self.person.authEmail,
+                "name": self.person.authName,
+                "studentID": self.person.studentID!,
+                "personId": self.person.personId!,
+                "persistedFaceIds":self.person.persistedFaceIds
+            ]) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("寫入user data to firestore")
+                    self.performSegue(withIdentifier: "RegToMain", sender: self)
+                }
+            }
     }
 }

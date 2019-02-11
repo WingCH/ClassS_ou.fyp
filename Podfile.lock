@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.8.1)
+  - AsyncSwift (2.0.4)
   - AutoKeyboard (1.4.3)
   - BoringSSL (10.0.6):
     - BoringSSL/Implementation (= 10.0.6)
@@ -19,6 +19,9 @@ PODS:
   - Firebase/Firestore (5.15.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (= 0.16.1)
+  - Firebase/Storage (5.15.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (= 3.0.3)
   - FirebaseAnalytics (5.4.0):
     - FirebaseCore (~> 5.1)
     - FirebaseInstanceID (~> 3.3)
@@ -55,6 +58,10 @@ PODS:
     - FirebaseCore (~> 5.1)
     - GoogleUtilities/Environment (~> 5.3)
     - GoogleUtilities/UserDefaults (~> 5.3)
+  - FirebaseStorage (3.0.3):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 5.1)
+    - GTMSessionFetcher/Core (~> 1.1)
   - GoogleAppMeasurement (5.4.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
@@ -116,27 +123,30 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
-  - Networking (4.4.0)
+  - NVActivityIndicatorView (4.5.1):
+    - NVActivityIndicatorView/Presenter (= 4.5.1)
+  - NVActivityIndicatorView/Presenter (4.5.1)
   - Protobuf (3.6.1)
   - SPPermission (2.8)
   - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.8.0)
+  - AsyncSwift
   - AutoKeyboard
   - Eureka
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Firestore
+  - Firebase/Storage
   - GoogleSignIn
   - ImageRow (~> 3.0)
-  - Networking (~> 4)
+  - NVActivityIndicatorView
   - SPPermission
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Alamofire
+    - AsyncSwift
     - AutoKeyboard
     - BoringSSL
     - Eureka
@@ -147,6 +157,7 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseFirestore
     - FirebaseInstanceID
+    - FirebaseStorage
     - GoogleAppMeasurement
     - GoogleSignIn
     - GoogleToolboxForMac
@@ -157,13 +168,13 @@ SPEC REPOS:
     - ImageRow
     - leveldb-library
     - nanopb
-    - Networking
+    - NVActivityIndicatorView
     - Protobuf
     - SPPermission
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  AsyncSwift: 65775a7b32e740609b24969ece3de58723b9dc3e
   AutoKeyboard: edf0c19a521c0491d57e8b8a35c766c5bcca3d0e
   BoringSSL: e10f92a27043805c01071fe815a5cd98ae8212e7
   Eureka: 28ea296f06710f6745266b71f17862048941a32d
@@ -174,6 +185,7 @@ SPEC CHECKSUMS:
   FirebaseCore: 35747502d9e8c6ee217385ad04446c7c2aaf9c5c
   FirebaseFirestore: 58043a1c2d2c91efdaa8d8f385cdbaa2ce750cfe
   FirebaseInstanceID: e2fa4cb35ef5558c200f7f0ad8a53e212215f93e
+  FirebaseStorage: 3d22c041370593e639fba013d1eb698a8dae2881
   GoogleAppMeasurement: 98b71f5e04142793729a5ef23e5b96651ff4b70f
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
   GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
@@ -184,11 +196,11 @@ SPEC CHECKSUMS:
   ImageRow: 03681b3ef8034b5a649440325f5d5ba7b22c1b0a
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
-  Networking: cbef47ab030af248248c26a696adb88989b52ef1
+  NVActivityIndicatorView: ec34a7b88c51fab270004a1a1f32116e711010cd
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   SPPermission: e9bbc29862ed2221028a12ada2ca86395e3dad87
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: ad6ed6f55c4fe9d09adcfca994de582e9bc54b27
+PODFILE CHECKSUM: ce7c57fcf34ab21462308f51742c1f8f48afd84b
 
 COCOAPODS: 1.5.2

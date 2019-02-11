@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import GoogleSignIn
-import Alamofire
 import SwiftyJSON
 
 class TestViewController: UIViewController {
