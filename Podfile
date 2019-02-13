@@ -8,7 +8,6 @@ target 'ou.fyp' do
   # Pods for ou.fyp
   pod 'SwiftyJSON', '~> 4.0'
   pod 'SPPermission'
-  pod 'AutoKeyboard'
   pod 'Eureka'
   pod 'ImageRow', '~> 3.0'
   pod 'Firebase/Core'
@@ -18,10 +17,11 @@ target 'ou.fyp' do
   pod 'GoogleSignIn'
   pod "AsyncSwift"
   pod 'NVActivityIndicatorView'
-
-
+  pod 'Kingfisher', '~> 5.0'
+  pod 'FaceAware'
+  pod 'SwiftMoment'
   
-
+ 
 
   
   target 'ou.fypTests' do

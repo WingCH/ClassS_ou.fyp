@@ -7,10 +7,24 @@
 //
 
 import UIKit
-import AutoKeyboard
 import Firebase
 import GoogleSignIn
+import SwiftyJSON
 
+//class Student: Codable{
+//    let personId:String
+//    let studentID:String
+//    let name:String
+//    let persistedFaceIds:[String]
+//    let email:String
+//    init(personId:String, studentID:String, name:String, persistedFaceIds:[String], email:String) {
+//        self.personId = personId
+//        self.studentID = studentID
+//        self.name = name
+//        self.persistedFaceIds = persistedFaceIds
+//        self.email = email
+//    }
+//}
 class LoginViewController: UIViewController, GIDSignInUIDelegate{
 
     @IBOutlet weak var userName: UITextField!
@@ -29,9 +43,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
         // hide NavigationBar
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
-        registerAutoKeyboard(enable: [test], disable: []) { (result) in
-            print("keyboard status \(result.status)")
-        }
+
         
         handle = Auth.auth().addStateDidChangeListener() { (auth, user) in
             print(auth)
@@ -41,26 +53,31 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
                 
                 usersRef.getDocument { (document, error) in
                     if let document = document, document.exists {
+                        let data = document.data()
+
+//                        let json = JSON(arrayLiteral: data!)
+//                        let my = Student(personId: json[0]["personId"].string!, studentID: json[0]["studentID"].string!, name: json[0]["name"].string!, persistedFaceIds: json[0]["persistedFaceIds"].arrayObject! as! [String], email: json[0]["email"].string!)
+//                        print(my.persistedFaceIds[0])
+//                        
+////                        let defaults = Defaults()
+////                        let key = Key<String>("loginedUserData")
+////                        defaults.set(my, for: key)
+//                        
+//                        let defaults = Defaults() // or Defaults.shared
+//                        // Define a key
+//                        let key = Key<String>("loginedUserData")
+//                        
+//                        // Set a value
+//                        defaults.set("Codable FTW 😃", for: key)
+//                        
+//                        // Read the value back
+//                        defaults.get(for: key) // Output: Codable FTW 😃
+//                        
+                        
                         
                         self.performSegue(withIdentifier: "LoginToMain", sender: self)
                     } else {
-                        //firestore(/users/userid) 未有user 資料
-                        //init user 寫入user data to firestore
-//                        usersRef.setData([
-//                            "email": user.email!,
-//                            "name": user.displayName!,
-//                            "faces": []
-//                        ]) { err in
-//                            if let err = err {
-//                                print("Error writing document: \(err)")
-//                            } else {
-//                                print("寫入user data to firestore")
-//                                self.performSegue(withIdentifier: "LoginToReg", sender: self)
-//                            }
-//                        }
-
                         self.performSegue(withIdentifier: "LoginToReg", sender: self)
-
                     }
                 }
                 
@@ -73,7 +90,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        unRegisterAutoKeyboard()
         Auth.auth().removeStateDidChangeListener(handle!)
     }
     

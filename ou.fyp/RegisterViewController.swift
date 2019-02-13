@@ -13,7 +13,7 @@ import Firebase
 import Async
 import NVActivityIndicatorView
 import FirebaseStorage
-
+import GoogleSignIn
 
 class Person {
     
@@ -29,14 +29,23 @@ class Person {
     
     
     var personId: String?
-    var persistedFaceIds: [String:String]
+    var persistedFaceIds: [String]
     
     
     init() {
         self.authID = (Auth.auth().currentUser?.uid)!
         self.authEmail = (Auth.auth().currentUser?.email)!
         self.authName = (Auth.auth().currentUser?.displayName)!
-        self.persistedFaceIds = [:]
+        self.persistedFaceIds = []
+    }
+    
+    init(authID: String, authEmail: String, authName: String, studentID: String, personId: String, persistedFaceIds: [String]) {
+        self.authID = authID
+        self.authEmail = authEmail
+        self.authName = authName
+        self.studentID = studentID
+        self.personId = personId
+        self.persistedFaceIds = persistedFaceIds
     }
     
 }
@@ -51,6 +60,11 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
         
         // show NavigationBar
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.plain, target: self, action: #selector(RegisterViewController.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+        
         //Error message style
         LabelRow.defaultCellUpdate = { cell, row in
             cell.contentView.backgroundColor = .red
@@ -119,25 +133,6 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
                         self.person.studentID = row.value!
                         
                         
-                        //                            //方便upload相個陣用 懶做法
-                        //                            self.personId = data!["personId"].string!
-                        //
-                        //                            let usersRef =  Firestore.firestore().collection("users").document(accountID_row!.value!)
-                        //                            usersRef.updateData([
-                        //                                "studentID": row.value!,
-                        //                                "personId": data!["personId"].string!
-                        //                                ]) { err in
-                        //                                    if let err = err {
-                        //                                        print("Error writing document: \(err)")
-                        //                                    } else {
-                        //                                        print("成功寫入student ID to firestore")
-                        //                                        row.disabled = true
-                        //                                        row.evaluateDisabled()
-                        //                                        self.form.sectionBy(tag: "Face")?.hidden = false
-                        //                                        self.form.sectionBy(tag: "Face")?.evaluateHidden()
-                        //                                    }
-                        //                            }
-                        
                     }
             }
             
@@ -150,7 +145,6 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
                                         return ButtonRow(){
                                             $0.title = "Add Face"
                                             $0.tag = "btn"
-                                            //                                            $0.validationOptions = .validatesOnChangeAfterBlurred
                                         }
                                     }
                                     
@@ -160,12 +154,12 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
                                         //                                        let buttonRow  = self.form.rowBy(tag: "btn") as! ButtonRow
                                         //                                        buttonRow.disabled = true
                                         //                                        buttonRow.evaluateDisabled()
-                                        
+                                        //
                                         return ImageRow() {
                                             $0.title = "Face \(index+1)"
                                             $0.sourceTypes = [.PhotoLibrary, .Camera]
                                             $0.clearAction = .yes(style: UIAlertAction.Style.destructive)
-                                            //                                            $0.validationOptions = .validatesOnChangeAfterBlurred
+                                            //$0.validationOptions = .validatesOnChangeAfterBlurred
                                             }
                                             
                                             .cellUpdate { cell, row in
@@ -248,6 +242,22 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
         }
     }
     
+    @objc func back(sender: UIBarButtonItem) {
+        // Perform your custom actions
+        // ...
+        // Go back to the previous ViewController
+        let firebaseAuth = Auth.auth()
+        do {
+            //https://stackoverflow.com/questions/49827821/why-my-google-sign-in-doesnt-show-account-selection-after-i-successfully-sign-i
+            GIDSignIn.sharedInstance()?.signOut()
+            try firebaseAuth.signOut()
+            _ = navigationController?.popViewController(animated: true)
+
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+    
     @IBAction func submit(_ sender: UIBarButtonItem) {
         
         // 1. PersonGroup Person - Create   ->  personId
@@ -256,8 +266,9 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
         // 4. PersonGroup - Train
         
         let formData = self.form.values()
-        
         var persistedFaceIds_Source:[String:UIImage] = [:]
+        
+        // 1. PersonGroup Person - Create   ->  personId
         let group = AsyncGroup()
         group.enter()
         DispatchQueue.global(qos: .userInitiated).async {
@@ -280,6 +291,7 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
         
         print("personCreate done")
         
+        // 2. PersonGroup Person - Add Face ->  persistedFaceId x3
         for (index, faceImageData) in (formData["Face"]!! as! [UIImage]).enumerated(){
             print("第\(index)張相片上傳開始！！")
             group.enter()
@@ -298,7 +310,7 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
                     if let faceId = data!["persistedFaceId"].string {
                         print("第\(index)張相上傳成功 :\(faceId)")
                         persistedFaceIds_Source[faceId] = faceImageData
-                        self.person.persistedFaceIds["\(faceId)"] = ""
+                        self.person.persistedFaceIds.append(faceId)
                         group.leave()
                         
                         
@@ -307,51 +319,52 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
             }
         }
         group.wait()
-        print("all done")
+        print("personAddFace done")
         print(persistedFaceIds_Source)
         print(self.person.persistedFaceIds)
         
-        
+        // Upload face photo to firebase cloud Storage (呢part唔會等 因為搵唔到方法 代改進)
+        // path : /students/\(studentID)/\(persistedFaceId).jpg
         for (key, value) in persistedFaceIds_Source {
             print("Key: \(key) - Value: \(value)")
-                let riversRef = Storage.storage().reference().child("students").child(self.person.studentID!).child("\(key).jpg")
-                
-                riversRef.putData(value.jpegData(compressionQuality: 1)!, metadata: nil, completion: { metadata, error in
-                    print(metadata)
-                    print(error)
-                    guard metadata != nil else {
+            let riversRef = Storage.storage().reference().child("students").child(self.person.studentID!).child("\(key).jpg")
+            
+            riversRef.putData(value.jpegData(compressionQuality: 1)!, metadata: nil, completion: { metadata, error in
+                guard metadata != nil else {
+                    // Uh-oh, an error occurred!
+                    return
+                }
+                riversRef.downloadURL { (url, error) in
+                    guard url != nil else {
                         // Uh-oh, an error occurred!
                         return
                     }
-                    riversRef.downloadURL { (url, error) in
-                        guard url != nil else {
-                            // Uh-oh, an error occurred!
-                            return
-                        }
-                        self.person.persistedFaceIds[key] = "\(url!)"
-                        print(self.person.persistedFaceIds)
-                    }
-                })
+                    
+                    print(self.person.persistedFaceIds)
+                }
+            })
         }
-
         
+        // 3. Upload All data to Firestote
         //firestore(/users/userid) 未有user 資料
         //init user 寫入user data to firestore
         let usersRef =  Firestore.firestore().collection("users").document(self.person.authID)
-
-            usersRef.setData([
-                "email": self.person.authEmail,
-                "name": self.person.authName,
-                "studentID": self.person.studentID!,
-                "personId": self.person.personId!,
-                "persistedFaceIds":self.person.persistedFaceIds
-            ]) { err in
-                if let err = err {
-                    print("Error writing document: \(err)")
-                } else {
-                    print("寫入user data to firestore")
-                    self.performSegue(withIdentifier: "RegToMain", sender: self)
-                }
+        
+        usersRef.setData([
+            "email": self.person.authEmail,
+            "name": self.person.authName,
+            "studentID": self.person.studentID!,
+            "personId": self.person.personId!,
+            "persistedFaceIds":self.person.persistedFaceIds
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("寫入user data to firestore")
+                self.navigationController?.popViewController(animated: true)
             }
+        }
     }
+    
+    
 }
