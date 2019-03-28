@@ -26,7 +26,7 @@ import SwiftyJSON
 //    }
 //}
 class LoginViewController: UIViewController, GIDSignInUIDelegate{
-
+    
     @IBOutlet weak var userName: UITextField!
     
     @IBOutlet weak var password: UITextField!
@@ -43,49 +43,36 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
         // hide NavigationBar
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
-
+        
         
         handle = Auth.auth().addStateDidChangeListener() { (auth, user) in
             print(auth)
             if let user = user {
                 print("✉️: ", user.email!, "is logined")
-                let usersRef =  Firestore.firestore().collection("users").document(user.uid)
-                
-                usersRef.getDocument { (document, error) in
-                    if let document = document, document.exists {
-                        let data = document.data()
-
-//                        let json = JSON(arrayLiteral: data!)
-//                        let my = Student(personId: json[0]["personId"].string!, studentID: json[0]["studentID"].string!, name: json[0]["name"].string!, persistedFaceIds: json[0]["persistedFaceIds"].arrayObject! as! [String], email: json[0]["email"].string!)
-//                        print(my.persistedFaceIds[0])
-//                        
-////                        let defaults = Defaults()
-////                        let key = Key<String>("loginedUserData")
-////                        defaults.set(my, for: key)
-//                        
-//                        let defaults = Defaults() // or Defaults.shared
-//                        // Define a key
-//                        let key = Key<String>("loginedUserData")
-//                        
-//                        // Set a value
-//                        defaults.set("Codable FTW 😃", for: key)
-//                        
-//                        // Read the value back
-//                        defaults.get(for: key) // Output: Codable FTW 😃
-//                        
-                        
-                        
-                        self.performSegue(withIdentifier: "LoginToMain", sender: self)
-                    } else {
-                        self.performSegue(withIdentifier: "LoginToReg", sender: self)
+                FirebaseRealtimeDatabaseRest.shared.getUser(userId: user.uid, result: {data, error in
+                    // 因為user第一次sigin 正堂係無資料，所以呢到唔洗handle住
+//                    guard error == nil else {
+//                        print("here")
+//                        print(error!)
+//                        return
+//                    }
+//                    guard data!["error"].exists() == false else {
+//                        print(data!["error"])
+//                        return
+//                    }
+                    DispatchQueue.main.async {
+                        if (data != nil){
+                            self.performSegue(withIdentifier: "LoginToMain", sender: self)
+                        }else{
+                            self.performSegue(withIdentifier: "LoginToReg", sender: self)
+                        }
                     }
-                }
-                
+                })
             }else{
                 print("logouted")
             }
         }
-
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -101,6 +88,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
     @IBAction func googleSignin(_ sender: UIButton) {
         GIDSignIn.sharedInstance()?.signIn()
     }
-
+    
 }
 

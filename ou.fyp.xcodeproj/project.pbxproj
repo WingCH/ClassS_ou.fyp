@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2032A77B2212A57700635F63 /* ClassesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2032A77A2212A57700635F63 /* ClassesTableViewController.swift */; };
+		202B190322377841006704D3 /* ClassesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202B190222377840006704D3 /* ClassesCollectionViewController.swift */; };
 		2032A77D2212ABC400635F63 /* fyp-banner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2032A77C2212ABC400635F63 /* fyp-banner.jpg */; };
 		2032A77F2212C40100635F63 /* AttendanceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2032A77E2212C40100635F63 /* AttendanceTableViewController.swift */; };
 		2032A7852214237500635F63 /* student.png in Resources */ = {isa = PBXBuildFile; fileRef = 2032A7842214237500635F63 /* student.png */; };
-		207C3A6B22041D5D008AC3D1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C3A6A22041D5D008AC3D1 /* TestViewController.swift */; };
+		2041D1E82244B77200E441E3 /* NetworkInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2041D1E72244B77200E441E3 /* NetworkInfos.swift */; };
+		20842124221CF76900347852 /* FirebaseRealtimeDatabaseRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20842123221CF76900347852 /* FirebaseRealtimeDatabaseRest.swift */; };
+		20842127221D27AC00347852 /* UploadImagesToFirestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20842126221D27AC00347852 /* UploadImagesToFirestore.swift */; };
+		20842129221D79B600347852 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20842128221D79B600347852 /* User.swift */; };
 		20B133CD2209DB20002CEF43 /* AzureFaceRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B133CC2209DB20002CEF43 /* AzureFaceRecognition.swift */; };
 		20B6286221E0828800A26DA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B6286121E0828800A26DA4 /* AppDelegate.swift */; };
 		20B6286421E0828800A26DA4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B6286321E0828800A26DA4 /* LoginViewController.swift */; };
@@ -22,6 +25,11 @@
 		20B6288221E0828A00A26DA4 /* ou_fypUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B6288121E0828A00A26DA4 /* ou_fypUITests.swift */; };
 		20B8008522009EAB0022D193 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B8008422009EAB0022D193 /* RegisterViewController.swift */; };
 		20B800882202A6F50022D193 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20B800872202A6F40022D193 /* GoogleService-Info.plist */; };
+		20BCCACA2238B87C005B1F79 /* AttendanceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BCCAC92238B87C005B1F79 /* AttendanceCollectionViewController.swift */; };
+		20CF8B69224B32B8000CE216 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CF8B68224B32B8000CE216 /* ReachabilityManager.swift */; };
+		20CF8B6B224B3472000CE216 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CF8B6A224B3472000CE216 /* NavigationController.swift */; };
+		20CF8B71224B4AA3000CE216 /* WiFi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CF8B70224B4AA3000CE216 /* WiFi.swift */; };
+		20EAEABF221FEB9C0077B009 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EAEABE221FEB9C0077B009 /* Class.swift */; };
 		5D76A5310E4FECAE77374648 /* Pods_ou_fypUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE266AD57840F5DA083835F /* Pods_ou_fypUITests.framework */; };
 		A834A1BCEE7E974A5ED86F06 /* Pods_ou_fyp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378A0C20BBB9A4A26BB5C098 /* Pods_ou_fyp.framework */; };
 		EC07F48962FA5985EDE9169B /* Pods_ou_fypTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C845A569DEE39BA9DA45A8 /* Pods_ou_fypTests.framework */; };
@@ -45,11 +53,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2032A77A2212A57700635F63 /* ClassesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesTableViewController.swift; sourceTree = "<group>"; };
+		202B190222377840006704D3 /* ClassesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesCollectionViewController.swift; sourceTree = "<group>"; };
 		2032A77C2212ABC400635F63 /* fyp-banner.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fyp-banner.jpg"; sourceTree = "<group>"; };
 		2032A77E2212C40100635F63 /* AttendanceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTableViewController.swift; sourceTree = "<group>"; };
 		2032A7842214237500635F63 /* student.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = student.png; sourceTree = "<group>"; };
-		207C3A6A22041D5D008AC3D1 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		2041D1E72244B77200E441E3 /* NetworkInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInfos.swift; sourceTree = "<group>"; };
+		2041D1EB2244C33E00E441E3 /* ou.fyp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ou.fyp.entitlements; sourceTree = "<group>"; };
+		20842123221CF76900347852 /* FirebaseRealtimeDatabaseRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRealtimeDatabaseRest.swift; sourceTree = "<group>"; };
+		20842126221D27AC00347852 /* UploadImagesToFirestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImagesToFirestore.swift; sourceTree = "<group>"; };
+		20842128221D79B600347852 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		20B133CC2209DB20002CEF43 /* AzureFaceRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AzureFaceRecognition.swift; sourceTree = "<group>"; };
 		20B6285E21E0828800A26DA4 /* ou.fyp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ou.fyp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20B6286121E0828800A26DA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +78,11 @@
 		20B6288321E0828A00A26DA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20B8008422009EAB0022D193 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		20B800872202A6F40022D193 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		20BCCAC92238B87C005B1F79 /* AttendanceCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceCollectionViewController.swift; sourceTree = "<group>"; };
+		20CF8B68224B32B8000CE216 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		20CF8B6A224B3472000CE216 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		20CF8B70224B4AA3000CE216 /* WiFi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFi.swift; sourceTree = "<group>"; };
+		20EAEABE221FEB9C0077B009 /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
 		378A0C20BBB9A4A26BB5C098 /* Pods_ou_fyp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ou_fyp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		588E0F9DB4CB5874B1B50A5A /* Pods-ou.fypUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ou.fypUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ou.fypUITests/Pods-ou.fypUITests.release.xcconfig"; sourceTree = "<group>"; };
 		59C92C5D221629152ACEA84F /* Pods-ou.fyp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ou.fyp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ou.fyp/Pods-ou.fyp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -105,6 +122,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20842120221CF68B00347852 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				20842128221D79B600347852 /* User.swift */,
+				20EAEABE221FEB9C0077B009 /* Class.swift */,
+				20CF8B70224B4AA3000CE216 /* WiFi.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		20842122221CF6B800347852 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				20B6286121E0828800A26DA4 /* AppDelegate.swift */,
+				20B6286A21E0828A00A26DA4 /* LaunchScreen.storyboard */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		20842125221D277F00347852 /* Helpper */ = {
+			isa = PBXGroup;
+			children = (
+				20B133CC2209DB20002CEF43 /* AzureFaceRecognition.swift */,
+				20842123221CF76900347852 /* FirebaseRealtimeDatabaseRest.swift */,
+				20842126221D27AC00347852 /* UploadImagesToFirestore.swift */,
+				2041D1E72244B77200E441E3 /* NetworkInfos.swift */,
+				20CF8B68224B32B8000CE216 /* ReachabilityManager.swift */,
+			);
+			path = Helpper;
+			sourceTree = "<group>";
+		};
 		20B6285521E0828800A26DA4 = {
 			isa = PBXGroup;
 			children = (
@@ -130,20 +178,22 @@
 		20B6286021E0828800A26DA4 /* ou.fyp */ = {
 			isa = PBXGroup;
 			children = (
-				20B6286121E0828800A26DA4 /* AppDelegate.swift */,
+				2041D1EB2244C33E00E441E3 /* ou.fyp.entitlements */,
+				20842125221D277F00347852 /* Helpper */,
+				20842122221CF6B800347852 /* Setting */,
+				20842120221CF68B00347852 /* Model */,
 				20B6286321E0828800A26DA4 /* LoginViewController.swift */,
 				20B8008422009EAB0022D193 /* RegisterViewController.swift */,
-				2032A77A2212A57700635F63 /* ClassesTableViewController.swift */,
+				202B190222377840006704D3 /* ClassesCollectionViewController.swift */,
+				20BCCAC92238B87C005B1F79 /* AttendanceCollectionViewController.swift */,
 				2032A77E2212C40100635F63 /* AttendanceTableViewController.swift */,
-				20B133CC2209DB20002CEF43 /* AzureFaceRecognition.swift */,
-				207C3A6A22041D5D008AC3D1 /* TestViewController.swift */,
 				20B6286521E0828800A26DA4 /* Main.storyboard */,
 				20B6286821E0828A00A26DA4 /* Assets.xcassets */,
 				2032A77C2212ABC400635F63 /* fyp-banner.jpg */,
 				2032A7842214237500635F63 /* student.png */,
-				20B6286A21E0828A00A26DA4 /* LaunchScreen.storyboard */,
 				20B6286D21E0828A00A26DA4 /* Info.plist */,
 				20B800872202A6F40022D193 /* GoogleService-Info.plist */,
+				20CF8B6A224B3472000CE216 /* NavigationController.swift */,
 			);
 			path = ou.fyp;
 			sourceTree = "<group>";
@@ -262,13 +312,27 @@
 				TargetAttributes = {
 					20B6285D21E0828800A26DA4 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
+						SystemCapabilities = {
+							com.apple.AccessWiFi = {
+								enabled = 1;
+							};
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+							com.apple.WAC = {
+								enabled = 0;
+							};
+						};
 					};
 					20B6287121E0828A00A26DA4 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 20B6285D21E0828800A26DA4;
 					};
 					20B6287C21E0828A00A26DA4 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 20B6285D21E0828800A26DA4;
 					};
 				};
@@ -331,12 +395,10 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ou.fyp/Pods-ou.fyp-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,8 +467,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ou.fyp/Pods-ou.fyp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AsyncSwift/Async.framework",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FaceAware/FaceAware.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -414,9 +475,10 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Loaf/Loaf.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SPPermission/SPPermission.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMoment/SwiftMoment.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
@@ -426,8 +488,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Async.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FaceAware.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
@@ -435,9 +496,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageRow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Loaf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPPermission.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMoment.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
@@ -457,13 +519,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20CF8B69224B32B8000CE216 /* ReachabilityManager.swift in Sources */,
 				20B133CD2209DB20002CEF43 /* AzureFaceRecognition.swift in Sources */,
+				20BCCACA2238B87C005B1F79 /* AttendanceCollectionViewController.swift in Sources */,
+				202B190322377841006704D3 /* ClassesCollectionViewController.swift in Sources */,
+				20EAEABF221FEB9C0077B009 /* Class.swift in Sources */,
+				20CF8B6B224B3472000CE216 /* NavigationController.swift in Sources */,
 				20B8008522009EAB0022D193 /* RegisterViewController.swift in Sources */,
 				20B6286421E0828800A26DA4 /* LoginViewController.swift in Sources */,
 				2032A77F2212C40100635F63 /* AttendanceTableViewController.swift in Sources */,
-				2032A77B2212A57700635F63 /* ClassesTableViewController.swift in Sources */,
-				207C3A6B22041D5D008AC3D1 /* TestViewController.swift in Sources */,
+				20842124221CF76900347852 /* FirebaseRealtimeDatabaseRest.swift in Sources */,
+				2041D1E82244B77200E441E3 /* NetworkInfos.swift in Sources */,
 				20B6286221E0828800A26DA4 /* AppDelegate.swift in Sources */,
+				20842129221D79B600347852 /* User.swift in Sources */,
+				20CF8B71224B4AA3000CE216 /* WiFi.swift in Sources */,
+				20842127221D27AC00347852 /* UploadImagesToFirestore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,6 +709,8 @@
 			baseConfigurationReference = 59C92C5D221629152ACEA84F /* Pods-ou.fyp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ou.fyp/ou.fyp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AL869FRMV6;
 				INFOPLIST_FILE = ou.fyp/Info.plist;
@@ -648,6 +720,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "WingCH.ou-fyp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -658,6 +731,8 @@
 			baseConfigurationReference = B2C3F3E2CFBBF8551DFD6FFE /* Pods-ou.fyp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ou.fyp/ou.fyp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AL869FRMV6;
 				INFOPLIST_FILE = ou.fyp/Info.plist;
@@ -667,6 +742,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "WingCH.ou-fyp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -34,12 +34,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
     
+     //從後台打開應用程序的時候才算進入前台
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        debugPrint("ReachabilityManager stopMonitoring")
+        ReachabilityManager.shared.stopMonitoring()
     }
     
+    //從後台回到前台、來電打斷結束(挂機)就會從非活躍狀態變成活躍狀態
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        debugPrint("ReachabilityManager startMonitoring")
+        ReachabilityManager.shared.startMonitoring()
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
@@ -80,7 +86,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
         // Perform any operations when the user disconnects from app here.
         // ...
     }
-    
-    
-    
+}
+
+extension UIApplication {
+    class func topViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let nav = base as? UINavigationController {
+            return topViewController(base: nav.visibleViewController)
+        }
+        if let tab = base as? UITabBarController {
+            let moreNavigationController = tab.moreNavigationController
+            
+            if let top = moreNavigationController.topViewController, top.view.window != nil {
+                return topViewController(base: top)
+            } else if let selected = tab.selectedViewController {
+                return topViewController(base: selected)
+            }
+        }
+        if let presented = base?.presentedViewController {
+            return topViewController(base: presented)
+        }
+        return base
+    }
 }

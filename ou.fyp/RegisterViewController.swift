@@ -10,11 +10,12 @@ import UIKit
 import Eureka
 import ImageRow
 import Firebase
-import Async
 import NVActivityIndicatorView
 import FirebaseStorage
 import GoogleSignIn
+import Loaf
 
+//要del
 class Person {
     
     let authID: String
@@ -53,7 +54,9 @@ class Person {
 class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
     
     
-    let person = Person()
+    //    let person = Person()
+    let user = User()
+    let authID = (Auth.auth().currentUser?.uid)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,9 +74,7 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
             cell.textLabel?.textColor = .white
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 13)
             cell.textLabel?.textAlignment = .right
-            
         }
-        
         
         struct FormItems {
             static let AccountID = "Account ID"
@@ -85,17 +86,17 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
         form +++ Section("Google sigin information")
             <<< TextRow("AccountID") {
                 $0.title = FormItems.AccountID
-                $0.value = person.authID
+                $0.value = authID
                 $0.disabled = true
             }
             <<< TextRow("Email") {
                 $0.title = FormItems.AccountEmail
-                $0.value = person.authEmail
+                $0.value = user.email
                 $0.disabled = true
             }
             <<< TextRow("UserName") {
                 $0.title = FormItems.AccountUserName
-                $0.value = person.authName
+                $0.value = user.name
                 $0.disabled = true
         }
         
@@ -129,10 +130,7 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
                             row.section?.insert(labelRow, at: row.indexPath!.row + index + 1)
                         }
                     }else{
-                        
-                        self.person.studentID = row.value!
-                        
-                        
+                        self.user.studentId = row.value!
                     }
             }
             
@@ -174,15 +172,19 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
                                                 }
                                                 
                                                 let faceImage = row.value!
-                                                AzureFaceRecognition.shared.faceDetect(faceImageData: faceImage.jpegData(compressionQuality: 1)!, result: {data, error in
+                                                AzureFaceRecognition.shared.faceDetect(faceImageData: faceImage.compressTo(4)!, result: {data, error in
                                                     guard error == nil else {
                                                         print(error!)
+                                                        Loaf("\(error.debugDescription)", state: .error, sender: self).show()
+
                                                         return
                                                     }
                                                     
                                                     guard data!["error"].exists() == false else {
                                                         print(data!["error"])
                                                         DispatchQueue.main.async {
+                                                            Loaf(data!["error"]["message"].string!, state: .error, sender: self).show()
+
                                                             row.value = nil
                                                             row.title = data!["error"]["message"].string
                                                             row.reload()
@@ -192,8 +194,9 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
                                                     
                                                     guard data!.count == 1 else{
                                                         print("圖片有\(data!.count)個人臉，只容許有一張人臉，請重拍")
-                                                        
+                                                       
                                                         DispatchQueue.main.async {
+                                                             Loaf("圖片有\(data!.count)個人臉，只容許有一張人臉，請重拍", state: .error, sender: self).show()
                                                             row.value = nil
                                                             row.title = "請重拍,圖片有\(data!.count)個人臉，只容許有一張人臉"
                                                             row.reload()
@@ -211,31 +214,6 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
                                                     }
                                                 })
                                                 
-                                                //                                                AzureFaceRecognition.shared.addPersonFace(personId: "af3ca566-60d5-40f4-9edd-6d329eaca443", faceImageData: faceImage.jpegData(compressionQuality: 0.5)!, persistedFaceId: { persistedFaceId in
-                                                //                                                    print(persistedFaceId)
-                                                //                                                    DispatchQueue.main.async {
-                                                //                                                        row.disabled = true
-                                                //                                                        row.evaluateDisabled()
-                                                //                                                        row.reload()
-                                                //                                                    }
-                                                //
-                                                //                                                })
-                                                //                                            AzureFaceRecognition.shared.personAddFace(personId: self.personId, faceImageData: faceImage.jpegData(compressionQuality: 1)!, result: {data, error in
-                                                //                                                    guard error == nil else {
-                                                //                                                        print(error!)
-                                                //                                                        return
-                                                //                                                    }
-                                                //
-                                                //                                                    guard data!["error"].exists() == false else {
-                                                //                                                        print(data!["error"])
-                                                //                                                        return
-                                                //                                                    }
-                                                //                                                    DispatchQueue.main.async {
-                                                //                                                        row.disabled = true
-                                                //                                                        row.evaluateDisabled()
-                                                //                                                        row.reload()
-                                                //                                                    }
-                                                //                                            })
                                         }
                                         
                                     }
@@ -252,13 +230,20 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
             GIDSignIn.sharedInstance()?.signOut()
             try firebaseAuth.signOut()
             _ = navigationController?.popViewController(animated: true)
-
+            
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
     }
     
     @IBAction func submit(_ sender: UIBarButtonItem) {
+        
+        
+        let activityData =  ActivityData()
+        let queue = DispatchQueue(label: "com.ou.fyp.queue", qos: DispatchQoS.userInteractive)
+        
+        //bug: step2 之後先出現
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, NVActivityIndicatorView.DEFAULT_FADE_IN_ANIMATION)
         
         // 1. PersonGroup Person - Create   ->  personId
         // 2. PersonGroup Person - Add Face ->  persistedFaceId x3
@@ -267,12 +252,13 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
         
         let formData = self.form.values()
         var persistedFaceIds_Source:[String:UIImage] = [:]
-        
+        print(self.user.studentId!)
         // 1. PersonGroup Person - Create   ->  personId
-        let group = AsyncGroup()
+        
+        let group = DispatchGroup()
         group.enter()
-        DispatchQueue.global(qos: .userInitiated).async {
-            AzureFaceRecognition.shared.personCreate(name: self.person.studentID!, userData: self.person.authID, result:{ data, error in
+        queue.async {
+            AzureFaceRecognition.shared.personCreate(name: self.user.studentId!, userData: self.authID, result:{ data, error in
                 
                 guard error == nil else {
                     print(error!)
@@ -283,7 +269,7 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
                     print(data!["error"])
                     return
                 }
-                self.person.personId = data!["personId"].string
+                self.user.personId = data!["personId"].string
                 group.leave()
             })
         }
@@ -291,12 +277,13 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
         
         print("personCreate done")
         
+        
         // 2. PersonGroup Person - Add Face ->  persistedFaceId x3
         for (index, faceImageData) in (formData["Face"]!! as! [UIImage]).enumerated(){
             print("第\(index)張相片上傳開始！！")
             group.enter()
-            DispatchQueue.global(qos: .userInitiated).async {
-                AzureFaceRecognition.shared.personAddFace(personId: self.person.personId!, faceImageData: faceImageData.jpegData(compressionQuality: 1)!, result: {data, error in
+            queue.async {
+                AzureFaceRecognition.shared.personAddFace(personId: self.user.personId!, faceImageData: faceImageData.compressTo(4)!, result: {data, error in
                     guard error == nil else {
                         print(error!)
                         return
@@ -310,10 +297,7 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
                     if let faceId = data!["persistedFaceId"].string {
                         print("第\(index)張相上傳成功 :\(faceId)")
                         persistedFaceIds_Source[faceId] = faceImageData
-                        self.person.persistedFaceIds.append(faceId)
                         group.leave()
-                        
-                        
                     }
                 })
             }
@@ -321,49 +305,43 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
         group.wait()
         print("personAddFace done")
         print(persistedFaceIds_Source)
-        print(self.person.persistedFaceIds)
         
-        // Upload face photo to firebase cloud Storage (呢part唔會等 因為搵唔到方法 代改進)
-        // path : /students/\(studentID)/\(persistedFaceId).jpg
-        for (key, value) in persistedFaceIds_Source {
-            print("Key: \(key) - Value: \(value)")
-            let riversRef = Storage.storage().reference().child("students").child(self.person.studentID!).child("\(key).jpg")
+        
+        UploadImagesToFirestore.saveImages(uid: self.user.studentId!, persistedFaceIds_Source: persistedFaceIds_Source,result: {uploadedImageUrlsArray in
+            print("back here")
+            print(uploadedImageUrlsArray)
             
-            riversRef.putData(value.jpegData(compressionQuality: 1)!, metadata: nil, completion: { metadata, error in
-                guard metadata != nil else {
-                    // Uh-oh, an error occurred!
+            // 3. Upload All data to Firestote
+            //firestore(/users/userid) 未有user 資料
+            //init user 寫入user data to firestore
+            
+            self.user.persistedFaceIds = uploadedImageUrlsArray
+            print(self.user.getJson())
+            
+            FirebaseRealtimeDatabaseRest.shared.putUser(authId: self.authID, userData: self.user.getData(), result: {data, error in
+                guard error == nil else {
+                    print(error!)
                     return
                 }
-                riversRef.downloadURL { (url, error) in
-                    guard url != nil else {
-                        // Uh-oh, an error occurred!
-                        return
-                    }
-                    
-                    print(self.person.persistedFaceIds)
+                
+                guard data!["error"].exists() == false else {
+                    print(data!["error"])
+                    return
                 }
+                
+                print("success")
+                
+                DispatchQueue.main.async {
+                    NVActivityIndicatorPresenter.sharedInstance.stopAnimating(NVActivityIndicatorView.DEFAULT_FADE_OUT_ANIMATION)
+                    self.navigationController?.popViewController(animated: true)
+                    
+                }
+                
             })
-        }
+            
+        })
         
-        // 3. Upload All data to Firestote
-        //firestore(/users/userid) 未有user 資料
-        //init user 寫入user data to firestore
-        let usersRef =  Firestore.firestore().collection("users").document(self.person.authID)
         
-        usersRef.setData([
-            "email": self.person.authEmail,
-            "name": self.person.authName,
-            "studentID": self.person.studentID!,
-            "personId": self.person.personId!,
-            "persistedFaceIds":self.person.persistedFaceIds
-        ]) { err in
-            if let err = err {
-                print("Error writing document: \(err)")
-            } else {
-                print("寫入user data to firestore")
-                self.navigationController?.popViewController(animated: true)
-            }
-        }
     }
     
     
