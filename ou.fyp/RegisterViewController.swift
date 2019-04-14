@@ -15,42 +15,6 @@ import FirebaseStorage
 import GoogleSignIn
 import Loaf
 
-//要del
-class Person {
-    
-    let authID: String
-    let authEmail: String
-    let authName: String
-    
-    var studentID: String?{
-        didSet{
-            print("set studentID to \(String(describing: studentID!))")
-        }
-    }
-    
-    
-    var personId: String?
-    var persistedFaceIds: [String]
-    
-    
-    init() {
-        self.authID = (Auth.auth().currentUser?.uid)!
-        self.authEmail = (Auth.auth().currentUser?.email)!
-        self.authName = (Auth.auth().currentUser?.displayName)!
-        self.persistedFaceIds = []
-    }
-    
-    init(authID: String, authEmail: String, authName: String, studentID: String, personId: String, persistedFaceIds: [String]) {
-        self.authID = authID
-        self.authEmail = authEmail
-        self.authName = authName
-        self.studentID = studentID
-        self.personId = personId
-        self.persistedFaceIds = persistedFaceIds
-    }
-    
-}
-
 class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
     
     
@@ -127,7 +91,10 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
                                 $0.title = "Student ID should be 8 number"
                                 $0.cell.height = { 30 }
                             }
-                            row.section?.insert(labelRow, at: row.indexPath!.row + index + 1)
+                            //https://github.com/xmartlabs/Eureka/issues/1800#issuecomment-478968241
+//                            row.section?.insert(labelRow, at: row.indexPath!.row + index + 1)
+                            let indexPath = row.indexPath!.row + index + 1
+                            row.section?.insert(labelRow, at: indexPath)
                         }
                     }else{
                         self.user.studentId = row.value!
@@ -238,6 +205,7 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
     
     @IBAction func submit(_ sender: UIBarButtonItem) {
         
+        sender.isEnabled = false
         
         let activityData =  ActivityData()
         let queue = DispatchQueue(label: "com.ou.fyp.queue", qos: DispatchQoS.userInteractive)
@@ -318,7 +286,7 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
             self.user.persistedFaceIds = uploadedImageUrlsArray
             print(self.user.getJson())
             
-            FirebaseRealtimeDatabaseRest.shared.putUser(authId: self.authID, userData: self.user.getData(), result: {data, error in
+            FirebaseRealtimeDatabaseRest.shared.putUser(userData: self.user.getData(), result: {data, error in
                 guard error == nil else {
                     print(error!)
                     return

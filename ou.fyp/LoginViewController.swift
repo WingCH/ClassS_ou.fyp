@@ -36,6 +36,14 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
+        
+        InstanceID.instanceID().instanceID { (result, error) in
+            if let error = error {
+                print("Error fetching remote instance ID: \(error)")
+            } else if let result = result {
+                print("Remote instance ID token: \(result.token)")
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,10 +57,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
             print(auth)
             if let user = user {
                 print("✉️: ", user.email!, "is logined")
-                FirebaseRealtimeDatabaseRest.shared.getUser(userId: user.uid, result: {data, error in
-                    // 因為user第一次sigin 正堂係無資料，所以呢到唔洗handle住
+                print(user.uid)
+                FirebaseRealtimeDatabaseRest.shared.getUser(authId: user.uid, result: {data, error in
+                    // 因為user第一次sigin 正常係無資料，所以呢到唔洗handle住
 //                    guard error == nil else {
-//                        print("here")
 //                        print(error!)
 //                        return
 //                    }
@@ -61,10 +69,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
 //                        return
 //                    }
                     DispatchQueue.main.async {
-                        if (data != nil){
-                            self.performSegue(withIdentifier: "LoginToMain", sender: self)
-                        }else{
+                        if (data!.isEmpty){
                             self.performSegue(withIdentifier: "LoginToReg", sender: self)
+                        }else{
+                            self.performSegue(withIdentifier: "LoginToMain", sender: self)
                         }
                     }
                 })

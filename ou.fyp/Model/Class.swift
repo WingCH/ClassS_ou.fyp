@@ -13,12 +13,14 @@ class Class: Codable {
     let duration: Duration
     let id: String
     let name: String
+    let introduction: String
     
-    init(bgUrl: String, duration: Duration, id: String, name: String) {
+    init(bgUrl: String, duration: Duration, id: String, name: String, introduction: String) {
         self.bgUrl = bgUrl
         self.duration = duration
         self.id = id
         self.name = name
+        self.introduction = introduction
     }
 }
 
@@ -38,7 +40,8 @@ class ClassesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var locationName: UILabel!
     @IBOutlet weak var locationDescription: UILabel!
     
-    @IBOutlet weak var fraction: UILabel!
+    @IBOutlet weak var introduction: UILabel!
+    
 }
 
 

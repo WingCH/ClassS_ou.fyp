@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		202B190322377841006704D3 /* ClassesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202B190222377840006704D3 /* ClassesCollectionViewController.swift */; };
 		2032A77D2212ABC400635F63 /* fyp-banner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2032A77C2212ABC400635F63 /* fyp-banner.jpg */; };
-		2032A77F2212C40100635F63 /* AttendanceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2032A77E2212C40100635F63 /* AttendanceTableViewController.swift */; };
 		2032A7852214237500635F63 /* student.png in Resources */ = {isa = PBXBuildFile; fileRef = 2032A7842214237500635F63 /* student.png */; };
 		2041D1E82244B77200E441E3 /* NetworkInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2041D1E72244B77200E441E3 /* NetworkInfos.swift */; };
 		20842124221CF76900347852 /* FirebaseRealtimeDatabaseRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20842123221CF76900347852 /* FirebaseRealtimeDatabaseRest.swift */; };
 		20842127221D27AC00347852 /* UploadImagesToFirestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20842126221D27AC00347852 /* UploadImagesToFirestore.swift */; };
 		20842129221D79B600347852 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20842128221D79B600347852 /* User.swift */; };
 		20B133CD2209DB20002CEF43 /* AzureFaceRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B133CC2209DB20002CEF43 /* AzureFaceRecognition.swift */; };
+		20B3C5EB226303760029E68C /* LabsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B3C5EA226303760029E68C /* LabsTableViewController.swift */; };
+		20B3C5EF22632AB70029E68C /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B3C5EE22632AB70029E68C /* Question.swift */; };
+		20B3C5F322632B090029E68C /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B3C5F222632B090029E68C /* QuestionViewController.swift */; };
 		20B6286221E0828800A26DA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B6286121E0828800A26DA4 /* AppDelegate.swift */; };
 		20B6286421E0828800A26DA4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B6286321E0828800A26DA4 /* LoginViewController.swift */; };
 		20B6286721E0828800A26DA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20B6286521E0828800A26DA4 /* Main.storyboard */; };
@@ -26,8 +28,8 @@
 		20B8008522009EAB0022D193 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B8008422009EAB0022D193 /* RegisterViewController.swift */; };
 		20B800882202A6F50022D193 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20B800872202A6F40022D193 /* GoogleService-Info.plist */; };
 		20BCCACA2238B87C005B1F79 /* AttendanceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BCCAC92238B87C005B1F79 /* AttendanceCollectionViewController.swift */; };
+		20C85CE4225F2063003C362A /* ExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C85CE3225F2063003C362A /* ExportViewController.swift */; };
 		20CF8B69224B32B8000CE216 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CF8B68224B32B8000CE216 /* ReachabilityManager.swift */; };
-		20CF8B6B224B3472000CE216 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CF8B6A224B3472000CE216 /* NavigationController.swift */; };
 		20CF8B71224B4AA3000CE216 /* WiFi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CF8B70224B4AA3000CE216 /* WiFi.swift */; };
 		20EAEABF221FEB9C0077B009 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EAEABE221FEB9C0077B009 /* Class.swift */; };
 		5D76A5310E4FECAE77374648 /* Pods_ou_fypUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE266AD57840F5DA083835F /* Pods_ou_fypUITests.framework */; };
@@ -55,7 +57,6 @@
 /* Begin PBXFileReference section */
 		202B190222377840006704D3 /* ClassesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesCollectionViewController.swift; sourceTree = "<group>"; };
 		2032A77C2212ABC400635F63 /* fyp-banner.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fyp-banner.jpg"; sourceTree = "<group>"; };
-		2032A77E2212C40100635F63 /* AttendanceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTableViewController.swift; sourceTree = "<group>"; };
 		2032A7842214237500635F63 /* student.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = student.png; sourceTree = "<group>"; };
 		2041D1E72244B77200E441E3 /* NetworkInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInfos.swift; sourceTree = "<group>"; };
 		2041D1EB2244C33E00E441E3 /* ou.fyp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ou.fyp.entitlements; sourceTree = "<group>"; };
@@ -63,6 +64,9 @@
 		20842126221D27AC00347852 /* UploadImagesToFirestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImagesToFirestore.swift; sourceTree = "<group>"; };
 		20842128221D79B600347852 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		20B133CC2209DB20002CEF43 /* AzureFaceRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AzureFaceRecognition.swift; sourceTree = "<group>"; };
+		20B3C5EA226303760029E68C /* LabsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabsTableViewController.swift; sourceTree = "<group>"; };
+		20B3C5EE22632AB70029E68C /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		20B3C5F222632B090029E68C /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		20B6285E21E0828800A26DA4 /* ou.fyp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ou.fyp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20B6286121E0828800A26DA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20B6286321E0828800A26DA4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -79,10 +83,11 @@
 		20B8008422009EAB0022D193 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		20B800872202A6F40022D193 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		20BCCAC92238B87C005B1F79 /* AttendanceCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceCollectionViewController.swift; sourceTree = "<group>"; };
+		20C85CE3225F2063003C362A /* ExportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportViewController.swift; sourceTree = "<group>"; };
 		20CF8B68224B32B8000CE216 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
-		20CF8B6A224B3472000CE216 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		20CF8B70224B4AA3000CE216 /* WiFi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFi.swift; sourceTree = "<group>"; };
 		20EAEABE221FEB9C0077B009 /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
+		20F14DFB224C8C1D0073FFD4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		378A0C20BBB9A4A26BB5C098 /* Pods_ou_fyp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ou_fyp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		588E0F9DB4CB5874B1B50A5A /* Pods-ou.fypUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ou.fypUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ou.fypUITests/Pods-ou.fypUITests.release.xcconfig"; sourceTree = "<group>"; };
 		59C92C5D221629152ACEA84F /* Pods-ou.fyp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ou.fyp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ou.fyp/Pods-ou.fyp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +130,7 @@
 		20842120221CF68B00347852 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				20B3C5EE22632AB70029E68C /* Question.swift */,
 				20842128221D79B600347852 /* User.swift */,
 				20EAEABE221FEB9C0077B009 /* Class.swift */,
 				20CF8B70224B4AA3000CE216 /* WiFi.swift */,
@@ -156,6 +162,7 @@
 		20B6285521E0828800A26DA4 = {
 			isa = PBXGroup;
 			children = (
+				20F14DFB224C8C1D0073FFD4 /* README.md */,
 				20B6286021E0828800A26DA4 /* ou.fyp */,
 				20B6287521E0828A00A26DA4 /* ou.fypTests */,
 				20B6288021E0828A00A26DA4 /* ou.fypUITests */,
@@ -186,14 +193,15 @@
 				20B8008422009EAB0022D193 /* RegisterViewController.swift */,
 				202B190222377840006704D3 /* ClassesCollectionViewController.swift */,
 				20BCCAC92238B87C005B1F79 /* AttendanceCollectionViewController.swift */,
-				2032A77E2212C40100635F63 /* AttendanceTableViewController.swift */,
+				20C85CE3225F2063003C362A /* ExportViewController.swift */,
+				20B3C5EA226303760029E68C /* LabsTableViewController.swift */,
+				20B3C5F222632B090029E68C /* QuestionViewController.swift */,
 				20B6286521E0828800A26DA4 /* Main.storyboard */,
 				20B6286821E0828A00A26DA4 /* Assets.xcassets */,
 				2032A77C2212ABC400635F63 /* fyp-banner.jpg */,
 				2032A7842214237500635F63 /* student.png */,
 				20B6286D21E0828A00A26DA4 /* Info.plist */,
 				20B800872202A6F40022D193 /* GoogleService-Info.plist */,
-				20CF8B6A224B3472000CE216 /* NavigationController.swift */,
 			);
 			path = ou.fyp;
 			sourceTree = "<group>";
@@ -319,6 +327,12 @@
 							};
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
 							};
 							com.apple.WAC = {
 								enabled = 0;
@@ -520,14 +534,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				20CF8B69224B32B8000CE216 /* ReachabilityManager.swift in Sources */,
+				20B3C5EF22632AB70029E68C /* Question.swift in Sources */,
 				20B133CD2209DB20002CEF43 /* AzureFaceRecognition.swift in Sources */,
 				20BCCACA2238B87C005B1F79 /* AttendanceCollectionViewController.swift in Sources */,
 				202B190322377841006704D3 /* ClassesCollectionViewController.swift in Sources */,
+				20B3C5EB226303760029E68C /* LabsTableViewController.swift in Sources */,
 				20EAEABF221FEB9C0077B009 /* Class.swift in Sources */,
-				20CF8B6B224B3472000CE216 /* NavigationController.swift in Sources */,
 				20B8008522009EAB0022D193 /* RegisterViewController.swift in Sources */,
+				20B3C5F322632B090029E68C /* QuestionViewController.swift in Sources */,
 				20B6286421E0828800A26DA4 /* LoginViewController.swift in Sources */,
-				2032A77F2212C40100635F63 /* AttendanceTableViewController.swift in Sources */,
+				20C85CE4225F2063003C362A /* ExportViewController.swift in Sources */,
 				20842124221CF76900347852 /* FirebaseRealtimeDatabaseRest.swift in Sources */,
 				2041D1E82244B77200E441E3 /* NetworkInfos.swift in Sources */,
 				20B6286221E0828800A26DA4 /* AppDelegate.swift in Sources */,
@@ -722,7 +738,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -744,7 +760,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

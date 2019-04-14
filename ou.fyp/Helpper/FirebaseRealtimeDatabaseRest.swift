@@ -14,11 +14,13 @@ fileprivate let URL = "https://ouhkface-89b5c.firebaseio.com"
 class FirebaseRealtimeDatabaseRest: NSObject {
     static let shared = FirebaseRealtimeDatabaseRest()
     
-    func getUser(userId:String, result:@escaping (JSON?, Error?)->()) {
-        print(URL+"/Users\(userId).json")
-        let request = NSMutableURLRequest(url: NSURL(string: URL+"/Users/\(userId).json")! as URL,
+    func getUser(authId:String, result:@escaping (JSON?, Error?)->()) {
+        
+
+        let request = NSMutableURLRequest(url: NSURL(string: URL+"/Users.json?orderBy=%22authId%22&equalTo=%22\(authId)%22")! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
+        
         request.httpMethod = "GET"
         
         let session = URLSession.shared
@@ -28,7 +30,6 @@ class FirebaseRealtimeDatabaseRest: NSObject {
             } else {
                 do{
                     let json = try JSON(data: data!)
-                    
                     result(json, nil)
                     
                 }catch let error{
@@ -40,16 +41,17 @@ class FirebaseRealtimeDatabaseRest: NSObject {
         dataTask.resume()
     }
     
-    func putUser(authId:String, userData:Data, result:@escaping (JSON?, Error?)->()) {
+    
+    func putUser(userData:Data, result:@escaping (JSON?, Error?)->()) {
         
         let headers = [
             "Content-Type": "application/json"
         ]
         
-        let request = NSMutableURLRequest(url: NSURL(string: URL+"/Users/\(authId).json")! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: URL+"/Users.json")! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
-        request.httpMethod = "PUT"
+        request.httpMethod = "POST"
         request.allHTTPHeaderFields = headers
         request.httpBody = userData
         
@@ -98,6 +100,34 @@ class FirebaseRealtimeDatabaseRest: NSObject {
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
         request.httpMethod = "GET"
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                result(nil, error)
+            } else {
+                do{
+                    let json = try JSON(data: data!)
+                    result(json, nil)
+                }catch let error{
+                    result(nil, error)
+                }
+            }
+        })
+        
+        dataTask.resume()
+    }
+    
+    func getAttenedStudentByClassID(classID:String, result:@escaping (JSON?, Error?)->()) {
+        let headers = [
+            "Content-Type": "application/json"
+        ]
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "https://us-central1-ouhkface-89b5c.cloudfunctions.net/getAttenedStudentByClassID?classID=\(classID)")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
         
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in

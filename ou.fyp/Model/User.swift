@@ -11,6 +11,7 @@ import Firebase
 
 class User:Codable {
     
+    let authId: String
     let email: String
     var studentId: String?
     let name: String
@@ -18,6 +19,7 @@ class User:Codable {
     var personId: String?
     
     init() {
+        self.authId = (Auth.auth().currentUser?.uid)!
         self.email = (Auth.auth().currentUser?.email)!
         self.name = (Auth.auth().currentUser?.displayName)!
         self.persistedFaceIds = [:]

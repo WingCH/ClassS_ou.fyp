@@ -14,6 +14,7 @@ extension UIImageView {
         self.layer.cornerRadius = (self.frame.width / 2) //instead of let radius = CGRectGetWidth(self.frame) / 2
         self.layer.masksToBounds = true
     }
+    
 }
 
 extension UICollectionViewCell {
@@ -31,35 +32,81 @@ class AttendanceCollectionViewController: UICollectionViewController {
     
     var classID:String?
     var duration: Duration?
-    var students: [User] = []
+    var allStudents: [User] = []
+    var attendStudents:[User]=[]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        FirebaseRealtimeDatabaseRest.shared.getStudentByClassID(classID: classID!, result: {data, error in
+//        FirebaseRealtimeDatabaseRest.shared.getStudentByClassID(classID: classID!, result: {data, error in
+//            guard data != nil else {
+//                print("no data")
+//                return
+//            }
+//            for (_, element) in data!.enumerated() {
+//                print(element)
+//                do{
+//                    let decoder = JSONDecoder()
+//                    let student = try decoder.decode(User.self, from: element.1.rawData())
+//                    print(student.name)
+//                    self.allStudents.append(student)
+//
+//                }catch let error{
+//                    print(error)
+//                }
+//            }
+//
+//            self.allStudents = self.allStudents.sorted(by: {Int($0.studentId!)! < Int($1.studentId!)!})
+//
+//            DispatchQueue.main.async{
+//                self.collectionView!.reloadData()
+//            }
+//
+//        })
+        
+        FirebaseRealtimeDatabaseRest.shared.getAttenedStudentByClassID(classID: classID!, result: {data, error in
             guard data != nil else {
                 print("no data")
                 return
             }
-            for (_, element) in data!.enumerated() {
+            
+            //return data: [{全部學生data},{已出席學生data}]
+            for (_, element) in (data?[0].enumerated())! {
                 print(element)
                 do{
                     let decoder = JSONDecoder()
                     let student = try decoder.decode(User.self, from: element.1.rawData())
                     print(student.name)
-                    self.students.append(student)
+                    self.allStudents.append(student)
                     
                 }catch let error{
                     print(error)
                 }
             }
-            self.students = self.students.sorted(by: {Int($0.studentId!)! < Int($1.studentId!)!})
             
+            for (_, element) in (data?[1].enumerated())! {
+                print(element)
+                do{
+                    let decoder = JSONDecoder()
+                    let student = try decoder.decode(User.self, from: element.1.rawData())
+                    print(student.name)
+                    self.attendStudents.append(student)
+                    
+                }catch let error{
+                    print(error)
+                }
+            }
+            
+            self.allStudents = self.allStudents.sorted(by: {Int($0.studentId!)! < Int($1.studentId!)!})
+            self.attendStudents = self.attendStudents.sorted(by: {Int($0.studentId!)! < Int($1.studentId!)!})
+
             DispatchQueue.main.async{
                 self.collectionView!.reloadData()
             }
-            
+            print(data!)
         })
+        
         
     }
     
@@ -73,58 +120,29 @@ class AttendanceCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return students.count
+        return allStudents.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! StudentCell
         
-        cell.name.text = students[indexPath.row].name
+        cell.name.text = allStudents[indexPath.row].name
         
-        if(students[indexPath.row].studentId == "12017730"){
+        if attendStudents.contains(where: { $0.studentId == allStudents[indexPath.row].studentId }) {
+            // found
+            cell.enable(on: true)
+        } else {
+            // not
             cell.enable(on: false)
         }
 
         cell.photo.setRounded()
+        
         //拎第一張做
-        let url = URL(string: (students[indexPath.row].persistedFaceIds!.first)!.value)
+        let url = URL(string: (allStudents[indexPath.row].persistedFaceIds!.first)!.value)
         cell.photo.kf.setImage(with: url)
-        
-        
-        // Configure the cell
         
         return cell
     }
-    
-    // MARK: UICollectionViewDelegate
-    
-    /*
-     // Uncomment this method to specify if the specified item should be highlighted during tracking
-     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
-    
-    /*
-     // Uncomment this method to specify if the specified item should be selected
-     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
-    
-    /*
-     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-     override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-     return false
-     }
-     
-     override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-     return false
-     }
-     
-     override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-     
-     }
-     */
     
 }

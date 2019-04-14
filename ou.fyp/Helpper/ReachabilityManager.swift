@@ -75,7 +75,7 @@ class ReachabilityManager: NSObject {
     
     /// Stops monitoring the network availability status
     func stopMonitoring(){
-        stopTimer()
+//        stopTimer()
         reachability.stopNotifier()
         NotificationCenter.default.removeObserver(self,
                                                   name: Notification.Name.reachabilityChanged,
@@ -118,11 +118,9 @@ class ReachabilityManager: NSObject {
     }
     
     @objc func checkBSSID() {
-        
         guard !NetworkInfos.init().getNetworkInfos().isEmpty else{
             return
         }
-        
         let currentBSSID = NetworkInfos.init().getNetworkInfos()[0].bssid
         
         //第一次

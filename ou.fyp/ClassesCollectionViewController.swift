@@ -63,24 +63,9 @@ class ClassesCollectionViewController: UIViewController, UICollectionViewDelegat
         cell.locationImage.kf.setImage(with: url)
 
         cell.locationName.text = classes[indexPath.row].name
-//        cell.locationDescription.text = classes[indexPath.row].duration.start
+        cell.introduction.text = classes[indexPath.row].introduction
         
         
-        //https://stackoverflow.com/questions/35214635/how-to-display-fraction-text-number-over-another
-        let pointSize : CGFloat = 60.0
-        let systemFontDesc = UIFont.systemFont(ofSize: pointSize,
-                                               weight: UIFont.Weight.light).fontDescriptor
-        let fractionFontDesc = systemFontDesc.addingAttributes(
-            [
-                UIFontDescriptor.AttributeName.featureSettings: [
-                    [
-                        UIFontDescriptor.FeatureKey.featureIdentifier: kFractionsType,
-                        UIFontDescriptor.FeatureKey.typeIdentifier: kDiagonalFractionsSelector,
-                        ],
-                ]
-            ])
-        cell.fraction.font = UIFont(descriptor: fractionFontDesc, size:pointSize)
-        cell.fraction.text = "2/3" // note just plain numbers and a regular slash
 
         //This creates the shadows and modifies the cards a little bit
        
@@ -119,6 +104,7 @@ class ClassesCollectionViewController: UIViewController, UICollectionViewDelegat
     @IBAction func refresh(_ sender: Any) {
         self.firstnetworkStatus()
     }
+    
     @IBAction func logout(_ sender: UIBarButtonItem) {
         let firebaseAuth = Auth.auth()
         do {
@@ -180,6 +166,11 @@ extension ClassesCollectionViewController: NetworkStatusListener {
     //拎當前reachability status
     //因為ReachabilityManager Listener 有更新個陣先會call到networkStatusDidChange
     func firstnetworkStatus() {
+        
+        guard !NetworkInfos.init().getNetworkInfos().isEmpty else{
+            self.navigationItem.titleView = self.navTitleWithImageAndText(titleText: "No BSSID", imageName: "location")
+            return
+        }
         let bssid = NetworkInfos.init().getNetworkInfos()[0].bssid
         switch ReachabilityManager.shared.reachability.connection {
         case .wifi:
