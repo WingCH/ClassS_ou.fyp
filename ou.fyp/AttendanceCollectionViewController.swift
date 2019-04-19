@@ -98,8 +98,8 @@ class AttendanceCollectionViewController: UICollectionViewController {
                 }
             }
             
-            self.allStudents = self.allStudents.sorted(by: {Int($0.studentId!)! < Int($1.studentId!)!})
-            self.attendStudents = self.attendStudents.sorted(by: {Int($0.studentId!)! < Int($1.studentId!)!})
+            self.allStudents = self.allStudents.sorted(by: {Int($0.id!)! < Int($1.id!)!})
+            self.attendStudents = self.attendStudents.sorted(by: {Int($0.id!)! < Int($1.id!)!})
 
             DispatchQueue.main.async{
                 self.collectionView!.reloadData()
@@ -128,7 +128,7 @@ class AttendanceCollectionViewController: UICollectionViewController {
         
         cell.name.text = allStudents[indexPath.row].name
         
-        if attendStudents.contains(where: { $0.studentId == allStudents[indexPath.row].studentId }) {
+        if attendStudents.contains(where: { $0.id == allStudents[indexPath.row].id }) {
             // found
             cell.enable(on: true)
         } else {

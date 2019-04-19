@@ -94,6 +94,30 @@ class FirebaseRealtimeDatabaseRest: NSObject {
         dataTask.resume()
     }
     
+    func getTeacherClass(teacherID:String, result:@escaping (JSON?, Error?)->()) {
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "https://ouhkface-89b5c.firebaseio.com/Classes.json?orderBy=%22teacherId%22&equalTo=%22\(teacherID)%22")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                result(nil, error)
+            } else {
+                do{
+                    let json = try JSON(data: data!)
+                    result(json, nil)
+                }catch let error{
+                    result(nil, error)
+                }
+            }
+        })
+        
+        dataTask.resume()
+    }
+    
     func getStudentByClassID(classID:String, result:@escaping (JSON?, Error?)->()) {
         
         let request = NSMutableURLRequest(url: NSURL(string: "https://us-central1-ouhkface-89b5c.cloudfunctions.net/getStudentByClassID?classID=\(classID)")! as URL,
@@ -166,6 +190,72 @@ class FirebaseRealtimeDatabaseRest: NSObject {
         dataTask.resume()
     }
     
+    func getLabWithStatus(classId:String, studentId:String, result:@escaping (JSON?, Error?)->() ){
+        let request = NSMutableURLRequest(url: NSURL(string: "https://us-central1-ouhkface-89b5c.cloudfunctions.net/getLabsByStudentIdAndClassId?classID=\(classId)&studentID=\(studentId)")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                result(nil, error)
+            } else {
+                do{
+                    let json = try JSON(data: data!)
+                    result(json, nil)
+                }catch let error{
+                    result(nil, error)
+                }
+            }
+        })
+        
+        dataTask.resume()
+    }
     
-    
+    func pushLabAnwser(classId:String, labName:String, studentId:String, answer:[String], timestamp:String, result:@escaping (JSON?, Error?)->()){
+        
+        let headers = [
+            "Content-Type": "application/json"
+        ]
+        let parameters = [
+            "studentId": studentId,
+            "labName": labName,
+            "classId": classId,
+            "answer": answer,
+            "timestamp": timestamp
+            ] as [String : Any]
+        
+        do{
+            let postData = try JSONSerialization.data(withJSONObject: parameters, options: [])
+            
+            let request = NSMutableURLRequest(url: NSURL(string: "https://ouhkface-89b5c.firebaseio.com/LabDone.json")! as URL,
+                                              cachePolicy: .useProtocolCachePolicy,
+                                              timeoutInterval: 10.0)
+            request.httpMethod = "POST"
+            request.allHTTPHeaderFields = headers
+            request.httpBody = postData as Data
+            
+            let session = URLSession.shared
+            let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+                if (error != nil) {
+                    result(nil, error)
+                } else {
+                    do{
+                        let json = try JSON(data: data!)
+                        result(json, nil)
+                    }catch let error{
+                        result(nil, error)
+                    }
+                }
+            })
+            
+            dataTask.resume()
+            
+        }catch let error{
+            result(nil, error)
+        }
+        
+
+    }
 }

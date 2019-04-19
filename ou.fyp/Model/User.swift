@@ -13,18 +13,20 @@ class User:Codable {
     
     let authId: String
     let email: String
-    var studentId: String?
+    var id: String?
     let name: String
     var persistedFaceIds: [String:String]?
     var personId: String?
+    var role: String?
     
     init() {
         self.authId = (Auth.auth().currentUser?.uid)!
         self.email = (Auth.auth().currentUser?.email)!
         self.name = (Auth.auth().currentUser?.displayName)!
         self.persistedFaceIds = [:]
-        self.studentId = ""
+        self.id = ""
         self.personId = ""
+        self.role = "student"
     }
     
     func getJson() -> String {

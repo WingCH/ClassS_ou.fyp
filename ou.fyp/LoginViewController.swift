@@ -32,6 +32,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var test: NSLayoutConstraint!
     var handle: AuthStateDidChangeListenerHandle?
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,8 +53,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
         // hide NavigationBar
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
-        
-        
         handle = Auth.auth().addStateDidChangeListener() { (auth, user) in
             print(auth)
             if let user = user {
@@ -60,19 +60,46 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
                 print(user.uid)
                 FirebaseRealtimeDatabaseRest.shared.getUser(authId: user.uid, result: {data, error in
                     // 因為user第一次sigin 正常係無資料，所以呢到唔洗handle住
-//                    guard error == nil else {
-//                        print(error!)
-//                        return
-//                    }
-//                    guard data!["error"].exists() == false else {
-//                        print(data!["error"])
-//                        return
-//                    }
+                    //                    guard error == nil else {
+                    //                        print(error!)
+                    //                        return
+                    //                    }
+                    //                    guard data!["error"].exists() == false else {
+                    //                        print(data!["error"])
+                    //                        return
+                    //                    }
                     DispatchQueue.main.async {
                         if (data!.isEmpty){
                             self.performSegue(withIdentifier: "LoginToReg", sender: self)
                         }else{
-                            self.performSegue(withIdentifier: "LoginToMain", sender: self)
+                            print("login")
+                            //                            print(data!.dictionaryValue.first!.value.rawData())
+                            do{
+                                
+                                let decoder = JSONDecoder()
+                                
+                                self.appDelegate.user = try decoder.decode(User.self, from: data!.dictionaryValue.first!.value.rawData())
+                                
+                                
+                            }catch let error{
+                                print(error)
+                            }
+                            
+                            
+                            switch self.appDelegate.user?.role!{
+                                
+                            case "student":
+                                print("student")
+                                self.performSegue(withIdentifier: "LoginToStudent", sender: self)
+                            case "teacher":
+                                print("teacher")
+                                self.performSegue(withIdentifier: "LoginToTeacher", sender: self)
+                            case .none:
+                                break
+                            case .some(_):
+                                break
+                            }
+                            
                         }
                     }
                 })

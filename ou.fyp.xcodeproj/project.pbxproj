@@ -18,6 +18,7 @@
 		20B3C5EB226303760029E68C /* LabsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B3C5EA226303760029E68C /* LabsTableViewController.swift */; };
 		20B3C5EF22632AB70029E68C /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B3C5EE22632AB70029E68C /* Question.swift */; };
 		20B3C5F322632B090029E68C /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B3C5F222632B090029E68C /* QuestionViewController.swift */; };
+		20B5BF402268658600F9C1E1 /* t_ClassesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B5BF3F2268658600F9C1E1 /* t_ClassesCollectionViewController.swift */; };
 		20B6286221E0828800A26DA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B6286121E0828800A26DA4 /* AppDelegate.swift */; };
 		20B6286421E0828800A26DA4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B6286321E0828800A26DA4 /* LoginViewController.swift */; };
 		20B6286721E0828800A26DA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20B6286521E0828800A26DA4 /* Main.storyboard */; };
@@ -55,7 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		202B190222377840006704D3 /* ClassesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesCollectionViewController.swift; sourceTree = "<group>"; };
+		202B190222377840006704D3 /* ClassesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClassesCollectionViewController.swift; path = ../ClassesCollectionViewController.swift; sourceTree = "<group>"; };
 		2032A77C2212ABC400635F63 /* fyp-banner.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fyp-banner.jpg"; sourceTree = "<group>"; };
 		2032A7842214237500635F63 /* student.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = student.png; sourceTree = "<group>"; };
 		2041D1E72244B77200E441E3 /* NetworkInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInfos.swift; sourceTree = "<group>"; };
@@ -64,9 +65,10 @@
 		20842126221D27AC00347852 /* UploadImagesToFirestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImagesToFirestore.swift; sourceTree = "<group>"; };
 		20842128221D79B600347852 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		20B133CC2209DB20002CEF43 /* AzureFaceRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AzureFaceRecognition.swift; sourceTree = "<group>"; };
-		20B3C5EA226303760029E68C /* LabsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabsTableViewController.swift; sourceTree = "<group>"; };
+		20B3C5EA226303760029E68C /* LabsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LabsTableViewController.swift; path = ../LabsTableViewController.swift; sourceTree = "<group>"; };
 		20B3C5EE22632AB70029E68C /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
-		20B3C5F222632B090029E68C /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		20B3C5F222632B090029E68C /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionViewController.swift; path = ../QuestionViewController.swift; sourceTree = "<group>"; };
+		20B5BF3F2268658600F9C1E1 /* t_ClassesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = t_ClassesCollectionViewController.swift; path = ou.fyp/t_ClassesCollectionViewController.swift; sourceTree = SOURCE_ROOT; };
 		20B6285E21E0828800A26DA4 /* ou.fyp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ou.fyp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20B6286121E0828800A26DA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20B6286321E0828800A26DA4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -82,8 +84,8 @@
 		20B6288321E0828A00A26DA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20B8008422009EAB0022D193 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		20B800872202A6F40022D193 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		20BCCAC92238B87C005B1F79 /* AttendanceCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceCollectionViewController.swift; sourceTree = "<group>"; };
-		20C85CE3225F2063003C362A /* ExportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportViewController.swift; sourceTree = "<group>"; };
+		20BCCAC92238B87C005B1F79 /* AttendanceCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttendanceCollectionViewController.swift; path = ../AttendanceCollectionViewController.swift; sourceTree = "<group>"; };
+		20C85CE3225F2063003C362A /* ExportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExportViewController.swift; path = ../ExportViewController.swift; sourceTree = "<group>"; };
 		20CF8B68224B32B8000CE216 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		20CF8B70224B4AA3000CE216 /* WiFi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFi.swift; sourceTree = "<group>"; };
 		20EAEABE221FEB9C0077B009 /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
@@ -159,6 +161,26 @@
 			path = Helpper;
 			sourceTree = "<group>";
 		};
+		20B5BF3D22685B5D00F9C1E1 /* Student */ = {
+			isa = PBXGroup;
+			children = (
+				202B190222377840006704D3 /* ClassesCollectionViewController.swift */,
+				20BCCAC92238B87C005B1F79 /* AttendanceCollectionViewController.swift */,
+				20C85CE3225F2063003C362A /* ExportViewController.swift */,
+				20B3C5EA226303760029E68C /* LabsTableViewController.swift */,
+				20B3C5F222632B090029E68C /* QuestionViewController.swift */,
+			);
+			path = Student;
+			sourceTree = "<group>";
+		};
+		20B5BF3E22685CDB00F9C1E1 /* Teacher */ = {
+			isa = PBXGroup;
+			children = (
+				20B5BF3F2268658600F9C1E1 /* t_ClassesCollectionViewController.swift */,
+			);
+			path = Teacher;
+			sourceTree = "<group>";
+		};
 		20B6285521E0828800A26DA4 = {
 			isa = PBXGroup;
 			children = (
@@ -189,13 +211,10 @@
 				20842125221D277F00347852 /* Helpper */,
 				20842122221CF6B800347852 /* Setting */,
 				20842120221CF68B00347852 /* Model */,
+				20B5BF3D22685B5D00F9C1E1 /* Student */,
+				20B5BF3E22685CDB00F9C1E1 /* Teacher */,
 				20B6286321E0828800A26DA4 /* LoginViewController.swift */,
 				20B8008422009EAB0022D193 /* RegisterViewController.swift */,
-				202B190222377840006704D3 /* ClassesCollectionViewController.swift */,
-				20BCCAC92238B87C005B1F79 /* AttendanceCollectionViewController.swift */,
-				20C85CE3225F2063003C362A /* ExportViewController.swift */,
-				20B3C5EA226303760029E68C /* LabsTableViewController.swift */,
-				20B3C5F222632B090029E68C /* QuestionViewController.swift */,
 				20B6286521E0828800A26DA4 /* Main.storyboard */,
 				20B6286821E0828A00A26DA4 /* Assets.xcassets */,
 				2032A77C2212ABC400635F63 /* fyp-banner.jpg */,
@@ -540,6 +559,7 @@
 				202B190322377841006704D3 /* ClassesCollectionViewController.swift in Sources */,
 				20B3C5EB226303760029E68C /* LabsTableViewController.swift in Sources */,
 				20EAEABF221FEB9C0077B009 /* Class.swift in Sources */,
+				20B5BF402268658600F9C1E1 /* t_ClassesCollectionViewController.swift in Sources */,
 				20B8008522009EAB0022D193 /* RegisterViewController.swift in Sources */,
 				20B3C5F322632B090029E68C /* QuestionViewController.swift in Sources */,
 				20B6286421E0828800A26DA4 /* LoginViewController.swift in Sources */,

@@ -43,6 +43,8 @@ class UploadImagesToFirestore: NSObject {
     
     static func saveImages(uid:String, persistedFaceIds_Source:[String:UIImage], result:@escaping ([String:String])->()){
         
+        
+        
         uploadImagesToFirestore(userId: uid,persistedFaceIds_Source : persistedFaceIds_Source){ (uploadedImageUrlsArray) in
             print("uploadedImageUrlsArray: \(uploadedImageUrlsArray)")
             result(uploadedImageUrlsArray)
@@ -52,6 +54,12 @@ class UploadImagesToFirestore: NSObject {
 
 
 func uploadImagesToFirestore(userId: String, persistedFaceIds_Source:[String:UIImage], completionHandler: @escaping ([String:String]) -> ()){
+    
+    guard !persistedFaceIds_Source.isEmpty else {
+        completionHandler([:])
+        return
+    }
+    
     let storage     =   Storage.storage()
     
     var uploadedImageUrlsArray = [String:String]()

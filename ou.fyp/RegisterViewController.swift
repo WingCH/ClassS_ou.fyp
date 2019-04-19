@@ -97,7 +97,7 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
                             row.section?.insert(labelRow, at: indexPath)
                         }
                     }else{
-                        self.user.studentId = row.value!
+                        self.user.id = row.value!
                     }
             }
             
@@ -220,13 +220,13 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
         
         let formData = self.form.values()
         var persistedFaceIds_Source:[String:UIImage] = [:]
-        print(self.user.studentId!)
+        print(self.user.id!)
         // 1. PersonGroup Person - Create   ->  personId
         
         let group = DispatchGroup()
         group.enter()
         queue.async {
-            AzureFaceRecognition.shared.personCreate(name: self.user.studentId!, userData: self.authID, result:{ data, error in
+            AzureFaceRecognition.shared.personCreate(name: self.user.id!, userData: self.authID, result:{ data, error in
                 
                 guard error == nil else {
                     print(error!)
@@ -273,9 +273,8 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
         group.wait()
         print("personAddFace done")
         print(persistedFaceIds_Source)
-        
-        
-        UploadImagesToFirestore.saveImages(uid: self.user.studentId!, persistedFaceIds_Source: persistedFaceIds_Source,result: {uploadedImageUrlsArray in
+
+        UploadImagesToFirestore.saveImages(uid: self.user.id!, persistedFaceIds_Source: persistedFaceIds_Source,result: {uploadedImageUrlsArray in
             print("back here")
             print(uploadedImageUrlsArray)
             
@@ -284,9 +283,9 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
             //init user 寫入user data to firestore
             
             self.user.persistedFaceIds = uploadedImageUrlsArray
-            print(self.user.getJson())
             
             FirebaseRealtimeDatabaseRest.shared.putUser(userData: self.user.getData(), result: {data, error in
+                print("putUser")
                 guard error == nil else {
                     print(error!)
                     return

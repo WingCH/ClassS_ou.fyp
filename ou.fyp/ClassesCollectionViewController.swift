@@ -32,9 +32,13 @@ class ClassesCollectionViewController: UIViewController, UICollectionViewDelegat
     }
     
     override func viewDidLoad() {
+        
         firstnetworkStatus()
+        
         FirebaseRealtimeDatabaseRest.shared.getClass(result: {data, error in
             for (_, element) in data!.enumerated() {
+                print("element")
+                print(element)
                 do{
                     let decoder = JSONDecoder()
                     let `class` = try decoder.decode(Class.self, from: element.1.rawData())
@@ -43,6 +47,8 @@ class ClassesCollectionViewController: UIViewController, UICollectionViewDelegat
                     print(error)
                 }
             }
+            
+             self.classes = self.classes.sorted(by: {$0.id > $1.id})
             DispatchQueue.main.async{
                 self.collectionView!.reloadData()
             }
@@ -91,12 +97,16 @@ class ClassesCollectionViewController: UIViewController, UICollectionViewDelegat
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "classToMain"{
-            let tabCtrl: UITabBarController = segue.destination as! UITabBarController
-            let destinationVC = tabCtrl.viewControllers![0] as! AttendanceCollectionViewController
             let row:Int = sender as! Int
             
-            destinationVC.classID = classes[row].id
-            destinationVC.duration = classes[row].duration
+            let tabCtrl: UITabBarController = segue.destination as! UITabBarController
+            
+//            let destinationVC = tabCtrl.viewControllers![0] as! AttendanceCollectionViewController
+//            destinationVC.classID = classes[row].id
+//            destinationVC.duration = classes[row].duration
+            
+            let labControllers = tabCtrl.viewControllers![0] as! LabsTableViewController
+            labControllers.classId = classes[row].id
             
         }
     }
