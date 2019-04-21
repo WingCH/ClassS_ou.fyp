@@ -33,7 +33,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
     @IBOutlet weak var test: NSLayoutConstraint!
     var handle: AuthStateDidChangeListenerHandle?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
+    var token:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
             if let error = error {
                 print("Error fetching remote instance ID: \(error)")
             } else if let result = result {
+                self.token = result.token
                 print("Remote instance ID token: \(result.token)")
+                
             }
         }
     }
@@ -68,6 +70,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
                     //                        print(data!["error"])
                     //                        return
                     //                    }
+
                     DispatchQueue.main.async {
                         if (data!.isEmpty){
                             self.performSegue(withIdentifier: "LoginToReg", sender: self)
@@ -80,6 +83,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
                                 
                                 self.appDelegate.user = try decoder.decode(User.self, from: data!.dictionaryValue.first!.value.rawData())
                                 
+                                FirebaseRealtimeDatabaseRest.shared.addToken(userPushID: (data!.dictionary?.keys.first)!, token: self.token ?? "")
                                 
                             }catch let error{
                                 print(error)

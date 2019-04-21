@@ -9,19 +9,26 @@
 import UIKit
 
 class Class: Codable {
+    let students: [String]
     let bgUrl: String
     let duration: Duration
-    let id: String
-    let name: String
-    let introduction: String
+    let id, introduction, name, teacherId: String
     
-    init(bgUrl: String, duration: Duration, id: String, name: String, introduction: String) {
+    enum CodingKeys: String, CodingKey {
+        case students = "Students"
+        case bgUrl, duration, id, introduction, name, teacherId
+    }
+    
+    init(students: [String], bgUrl: String, duration: Duration, id: String, introduction: String, name: String, teacherId: String) {
+        self.students = students
         self.bgUrl = bgUrl
         self.duration = duration
         self.id = id
-        self.name = name
         self.introduction = introduction
+        self.name = name
+        self.teacherId = teacherId
     }
+    
 }
 
 class Duration: Codable {

@@ -11,9 +11,12 @@
 		2032A77D2212ABC400635F63 /* fyp-banner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2032A77C2212ABC400635F63 /* fyp-banner.jpg */; };
 		2032A7852214237500635F63 /* student.png in Resources */ = {isa = PBXBuildFile; fileRef = 2032A7842214237500635F63 /* student.png */; };
 		2041D1E82244B77200E441E3 /* NetworkInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2041D1E72244B77200E441E3 /* NetworkInfos.swift */; };
+		204A40DF226ACCA300ED0003 /* t_LabsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204A40DE226ACCA300ED0003 /* t_LabsTableViewController.swift */; };
 		20842124221CF76900347852 /* FirebaseRealtimeDatabaseRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20842123221CF76900347852 /* FirebaseRealtimeDatabaseRest.swift */; };
 		20842127221D27AC00347852 /* UploadImagesToFirestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20842126221D27AC00347852 /* UploadImagesToFirestore.swift */; };
 		20842129221D79B600347852 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20842128221D79B600347852 /* User.swift */; };
+		20AB7935226C12CE00328707 /* t_Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AB7934226C12CE00328707 /* t_Question.swift */; };
+		20AB7937226C3E3B00328707 /* t_LasbRecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AB7936226C3E3B00328707 /* t_LasbRecordTableViewController.swift */; };
 		20B133CD2209DB20002CEF43 /* AzureFaceRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B133CC2209DB20002CEF43 /* AzureFaceRecognition.swift */; };
 		20B3C5EB226303760029E68C /* LabsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B3C5EA226303760029E68C /* LabsTableViewController.swift */; };
 		20B3C5EF22632AB70029E68C /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B3C5EE22632AB70029E68C /* Question.swift */; };
@@ -61,9 +64,12 @@
 		2032A7842214237500635F63 /* student.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = student.png; sourceTree = "<group>"; };
 		2041D1E72244B77200E441E3 /* NetworkInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInfos.swift; sourceTree = "<group>"; };
 		2041D1EB2244C33E00E441E3 /* ou.fyp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ou.fyp.entitlements; sourceTree = "<group>"; };
+		204A40DE226ACCA300ED0003 /* t_LabsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = t_LabsTableViewController.swift; sourceTree = "<group>"; };
 		20842123221CF76900347852 /* FirebaseRealtimeDatabaseRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRealtimeDatabaseRest.swift; sourceTree = "<group>"; };
 		20842126221D27AC00347852 /* UploadImagesToFirestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImagesToFirestore.swift; sourceTree = "<group>"; };
 		20842128221D79B600347852 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		20AB7934226C12CE00328707 /* t_Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = t_Question.swift; sourceTree = "<group>"; };
+		20AB7936226C3E3B00328707 /* t_LasbRecordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = t_LasbRecordTableViewController.swift; sourceTree = "<group>"; };
 		20B133CC2209DB20002CEF43 /* AzureFaceRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AzureFaceRecognition.swift; sourceTree = "<group>"; };
 		20B3C5EA226303760029E68C /* LabsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LabsTableViewController.swift; path = ../LabsTableViewController.swift; sourceTree = "<group>"; };
 		20B3C5EE22632AB70029E68C /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -132,6 +138,7 @@
 		20842120221CF68B00347852 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				20AB7934226C12CE00328707 /* t_Question.swift */,
 				20B3C5EE22632AB70029E68C /* Question.swift */,
 				20842128221D79B600347852 /* User.swift */,
 				20EAEABE221FEB9C0077B009 /* Class.swift */,
@@ -177,6 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				20B5BF3F2268658600F9C1E1 /* t_ClassesCollectionViewController.swift */,
+				204A40DE226ACCA300ED0003 /* t_LabsTableViewController.swift */,
+				20AB7936226C3E3B00328707 /* t_LasbRecordTableViewController.swift */,
 			);
 			path = Teacher;
 			sourceTree = "<group>";
@@ -562,13 +571,16 @@
 				20B5BF402268658600F9C1E1 /* t_ClassesCollectionViewController.swift in Sources */,
 				20B8008522009EAB0022D193 /* RegisterViewController.swift in Sources */,
 				20B3C5F322632B090029E68C /* QuestionViewController.swift in Sources */,
+				204A40DF226ACCA300ED0003 /* t_LabsTableViewController.swift in Sources */,
 				20B6286421E0828800A26DA4 /* LoginViewController.swift in Sources */,
 				20C85CE4225F2063003C362A /* ExportViewController.swift in Sources */,
 				20842124221CF76900347852 /* FirebaseRealtimeDatabaseRest.swift in Sources */,
 				2041D1E82244B77200E441E3 /* NetworkInfos.swift in Sources */,
+				20AB7937226C3E3B00328707 /* t_LasbRecordTableViewController.swift in Sources */,
 				20B6286221E0828800A26DA4 /* AppDelegate.swift in Sources */,
 				20842129221D79B600347852 /* User.swift in Sources */,
 				20CF8B71224B4AA3000CE216 /* WiFi.swift in Sources */,
+				20AB7935226C12CE00328707 /* t_Question.swift in Sources */,
 				20842127221D27AC00347852 /* UploadImagesToFirestore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

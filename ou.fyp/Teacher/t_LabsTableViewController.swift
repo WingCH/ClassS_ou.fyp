@@ -8,28 +8,27 @@
 
 import UIKit
 
-class LabCell: UITableViewCell {
+class t_LabCell: UITableViewCell {
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var status: UILabel!
     
 }
 
-class LabsTableViewController: UITableViewController {
-
-    var classId:String = ""
-    var labs:[Question] = []
+class t_LabsTableViewController: UITableViewController {
+    
+    var classes:Class?
+    var labs:[t_Question] = []
     
     override func viewWillAppear(_ animated: Bool) {
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         labs = []
         
-        FirebaseRealtimeDatabaseRest.shared.getLabWithStatus(classId: classId, studentId: (appDelegate.user?.id)!, result: {data, error in
+        FirebaseRealtimeDatabaseRest.shared.t_getLabWithCompletedStudent(classId: classes!.id, result: {data, error in
             for (_, element) in data!.enumerated() {
                 do{
                     let decoder = JSONDecoder()
-                    let lab = try decoder.decode(Question.self, from: element.1.rawData())
+                    let lab = try decoder.decode(t_Question.self, from: element.1.rawData())
                     self.labs.append(lab)
                 }catch let error{
                     print(error)
@@ -48,55 +47,38 @@ class LabsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         print("viewDidLoad")
-
+        
     }
-
-
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return labs.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LabCell
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! t_LabCell
+        
         cell.name.text = labs[indexPath.row].name
         
-        //0代表未做 1代表做左
-        if(labs[indexPath.row].status==0){
-            cell.status.text = "Not done"
-        }else{
-            cell.status.text = "done"
-            cell.enable(on: false)
-        }
-
+        cell.status.text = String(labs[indexPath.row].completed.count)+"/ \(String(describing: (classes?.students.count)!))"
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "goLab", sender: indexPath.row)
+        self.performSegue(withIdentifier: "toLabsRecord", sender: indexPath.row)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let index = sender as! Int
-        let controller = segue.destination as! QuestionViewController
-        controller.question = labs[index].self
-    }
-}
-
-//https://stackoverflow.com/a/33033327/10999568
-extension UITableViewCell {
-    func enable(on: Bool) {
-        self.isUserInteractionEnabled = on
-        for view in contentView.subviews {
-            view.isUserInteractionEnabled = on
-            view.alpha = on ? 1 : 0.5
-        }
+        let controller = segue.destination as! t_LasbRecordTableViewController
+        controller.labsRecord = labs[index].completed
     }
 }

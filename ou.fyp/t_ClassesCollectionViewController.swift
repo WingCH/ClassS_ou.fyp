@@ -32,9 +32,6 @@ class t_ClassesCollectionViewController: UIViewController, UICollectionViewDeleg
     override func viewDidLoad() {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-
-        
-
         
         FirebaseRealtimeDatabaseRest.shared.getTeacherClass(teacherID: (appDelegate.user?.id)!, result: {data, error in
             for (_, element) in data!.enumerated() {
@@ -105,8 +102,8 @@ class t_ClassesCollectionViewController: UIViewController, UICollectionViewDeleg
             destinationVC.classID = classes[row].id
             destinationVC.duration = classes[row].duration
             
-            let labControllers = tabCtrl.viewControllers![1] as! LabsTableViewController
-            labControllers.classId = classes[row].id
+            let labControllers = tabCtrl.viewControllers![1] as! t_LabsTableViewController
+            labControllers.classes =  classes[row]
 
             
         }

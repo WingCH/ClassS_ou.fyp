@@ -18,6 +18,7 @@ class User:Codable {
     var persistedFaceIds: [String:String]?
     var personId: String?
     var role: String?
+    var token: String?
     
     init() {
         self.authId = (Auth.auth().currentUser?.uid)!
