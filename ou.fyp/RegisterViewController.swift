@@ -204,6 +204,9 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
     }
     
     @IBAction func submit(_ sender: UIBarButtonItem) {
+        let formData = self.form.values()
+        print(formData["Face"])
+        
         
         sender.isEnabled = false
         
@@ -218,7 +221,7 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
         // 3. Upload All data to Firestote
         // 4. PersonGroup - Train
         
-        let formData = self.form.values()
+        
         var persistedFaceIds_Source:[String:UIImage] = [:]
         print(self.user.id!)
         // 1. PersonGroup Person - Create   ->  personId
