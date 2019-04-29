@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Loaf
 
 class t_LabCell: UITableViewCell {
     
@@ -25,6 +26,15 @@ class t_LabsTableViewController: UITableViewController {
         labs = []
         
         FirebaseRealtimeDatabaseRest.shared.t_getLabWithCompletedStudent(classId: classes!.id, result: {data, error in
+            
+            guard error == nil else {
+                print(error!)
+                DispatchQueue.main.async {
+                    Loaf("Error!!! try again", state: .error, sender: self).show()
+                }
+                return
+            }
+            
             for (_, element) in data!.enumerated() {
                 do{
                     let decoder = JSONDecoder()
@@ -80,5 +90,6 @@ class t_LabsTableViewController: UITableViewController {
         let index = sender as! Int
         let controller = segue.destination as! t_LasbRecordTableViewController
         controller.labsRecord = labs[index].completed
+        controller.labsQuestion = labs[index].questions
     }
 }

@@ -34,6 +34,15 @@ class t_ClassesCollectionViewController: UIViewController, UICollectionViewDeleg
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         FirebaseRealtimeDatabaseRest.shared.getTeacherClass(teacherID: (appDelegate.user?.id)!, result: {data, error in
+            
+            guard error == nil else {
+                print(error!)
+                DispatchQueue.main.async {
+                    Loaf("Error!!! try again", state: .error, sender: self).show()
+                }
+                return
+            }
+            
             for (_, element) in data!.enumerated() {
                 print("element")
                 print(element)

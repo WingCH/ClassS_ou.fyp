@@ -111,7 +111,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z5R-Ju-Jki" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2710" y="363"/>
+            <point key="canvasLocation" x="2647" y="363"/>
         </scene>
         <!--Class-->
         <scene sceneID="GKA-Hw-KTX">
@@ -372,7 +372,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lqj-8c-nkf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3450" y="363"/>
+            <point key="canvasLocation" x="3444" y="363"/>
         </scene>
         <!--Question View Controller-->
         <scene sceneID="6eB-AO-QjI">
@@ -502,7 +502,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UVR-P3-Fdo" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4308" y="363"/>
+            <point key="canvasLocation" x="4303" y="363"/>
         </scene>
         <!--Class-->
         <scene sceneID="U8h-Zn-PG0">
@@ -812,21 +812,95 @@
                             <outlet property="delegate" destination="xYK-LN-fjU" id="wjv-s8-4hI"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="gOu-l0-Kzg" kind="show" identifier="toLabsAnser" id="XEt-qM-6en"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cos-cx-16L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2709.5999999999999" y="2660.8374384236454"/>
+        </scene>
+        <!--Labs Student Answer Table View Controller-->
+        <scene sceneID="EwZ-eo-Zk4">
+            <objects>
+                <tableViewController id="gOu-l0-Kzg" customClass="t_LabsStudentAnswerTableViewController" customModule="ou_fyp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NJd-uE-U1r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="rP1-tQ-aGY" customClass="t_Student_Answer" customModule="ou_fyp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rP1-tQ-aGY" id="PPe-MV-ma2">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="clip" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nQR-Pb-Otd">
+                                            <rect key="frame" x="67" y="11" width="299" height="58"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MgG-CN-QqB">
+                                            <rect key="frame" x="67" y="68" width="299" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="GaH-Kh-Zh6"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKh-sZ-xlM">
+                                            <rect key="frame" x="16" y="11" width="43" height="78"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="43" id="AAx-mF-o0L"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                            <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="nQR-Pb-Otd" firstAttribute="trailing" secondItem="MgG-CN-QqB" secondAttribute="trailing" id="0TN-pA-58S"/>
+                                        <constraint firstItem="vKh-sZ-xlM" firstAttribute="top" secondItem="PPe-MV-ma2" secondAttribute="topMargin" id="8zg-3W-qdy"/>
+                                        <constraint firstItem="nQR-Pb-Otd" firstAttribute="leading" secondItem="vKh-sZ-xlM" secondAttribute="trailing" constant="8" symbolic="YES" id="B6o-Mp-rkC"/>
+                                        <constraint firstItem="vKh-sZ-xlM" firstAttribute="bottom" secondItem="PPe-MV-ma2" secondAttribute="bottomMargin" id="DLz-Ha-sfr"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="nQR-Pb-Otd" secondAttribute="trailing" constant="-7" id="TDD-7I-WsI"/>
+                                        <constraint firstItem="vKh-sZ-xlM" firstAttribute="bottom" secondItem="MgG-CN-QqB" secondAttribute="bottom" id="Z2o-vH-StA"/>
+                                        <constraint firstItem="nQR-Pb-Otd" firstAttribute="leading" secondItem="MgG-CN-QqB" secondAttribute="leading" id="fzO-9g-jTE"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="nQR-Pb-Otd" secondAttribute="bottom" constant="20" id="l9W-Yi-aJ7"/>
+                                        <constraint firstItem="vKh-sZ-xlM" firstAttribute="leading" secondItem="PPe-MV-ma2" secondAttribute="leadingMargin" id="odc-Rz-Dpf"/>
+                                        <constraint firstItem="vKh-sZ-xlM" firstAttribute="top" secondItem="nQR-Pb-Otd" secondAttribute="top" id="vTW-rk-ui8"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="answer" destination="MgG-CN-QqB" id="eVE-Qq-Trj"/>
+                                    <outlet property="number" destination="vKh-sZ-xlM" id="ul7-nO-crt"/>
+                                    <outlet property="question" destination="nQR-Pb-Otd" id="mAP-h4-3iM"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gOu-l0-Kzg" id="hbh-xd-AwT"/>
+                            <outlet property="delegate" destination="gOu-l0-Kzg" id="Ide-nl-AjX"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eo4-NX-isp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2710" y="3375"/>
         </scene>
     </scenes>
     <resources>
         <image name="Attendance" width="25" height="25"/>
         <image name="data_collection" width="25" height="25"/>
         <image name="export" width="278" height="879.33331298828125"/>
-        <image name="icon" width="512" height="512"/>
+        <image name="icon" width="321" height="321"/>
         <image name="lab" width="25" height="25"/>
         <image name="logout" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NKT-44-zim"/>
+        <segue reference="lX6-rK-QXx"/>
     </inferredMetricsTieBreakers>
 </document>

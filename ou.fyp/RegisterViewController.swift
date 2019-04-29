@@ -142,8 +142,9 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
                                                 AzureFaceRecognition.shared.faceDetect(faceImageData: faceImage.compressTo(4)!, result: {data, error in
                                                     guard error == nil else {
                                                         print(error!)
-                                                        Loaf("\(error.debugDescription)", state: .error, sender: self).show()
-
+                                                        DispatchQueue.main.async {
+                                                            Loaf("\(error.debugDescription)", state: .error, sender: self).show()   
+                                                        }
                                                         return
                                                     }
                                                     
