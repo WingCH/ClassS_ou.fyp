@@ -14,6 +14,7 @@ class t_LabCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var status: UILabel!
     
+    
 }
 
 class t_LabsTableViewController: UITableViewController {
@@ -22,6 +23,9 @@ class t_LabsTableViewController: UITableViewController {
     var labs:[t_Question] = []
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+        navigationItem.rightBarButtonItems = [add]
         
         labs = []
         
@@ -57,6 +61,8 @@ class t_LabsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         print("viewDidLoad")
+
+
         
     }
     
@@ -79,6 +85,7 @@ class t_LabsTableViewController: UITableViewController {
         
         cell.status.text = String(labs[indexPath.row].completed.count)+"/ \(String(describing: (classes?.students.count)!))"
         
+        
         return cell
     }
     
@@ -87,9 +94,12 @@ class t_LabsTableViewController: UITableViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let index = sender as! Int
-        let controller = segue.destination as! t_LasbRecordTableViewController
-        controller.labsRecord = labs[index].completed
-        controller.labsQuestion = labs[index].questions
+        if segue.identifier == "toLabsRecord"{
+            let index = sender as! Int
+            let controller = segue.destination as! t_LasbRecordTableViewController
+            controller.labsRecord = labs[index].completed
+            controller.labsQuestion = labs[index].questions
+        }
+
     }
 }

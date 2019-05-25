@@ -12,12 +12,14 @@ public class t_Question: Codable {
     public let classId, name: String
     public let questions: [t_QuestionElement]
     public let completed: [Completed]
+    public let comment:String?
     
-    public init(classId: String, name: String, questions: [t_QuestionElement], completed: [Completed]) {
+    public init(classId: String, name: String, questions: [t_QuestionElement], completed: [Completed], comment:String) {
         self.classId = classId
         self.name = name
         self.questions = questions
         self.completed = completed
+        self.comment = comment
     }
 }
 

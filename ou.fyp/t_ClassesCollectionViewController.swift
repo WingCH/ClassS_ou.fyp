@@ -112,6 +112,7 @@ class t_ClassesCollectionViewController: UIViewController, UICollectionViewDeleg
             destinationVC.duration = classes[row].duration
             
             let labControllers = tabCtrl.viewControllers![1] as! t_LabsTableViewController
+
             labControllers.classes =  classes[row]
 
             

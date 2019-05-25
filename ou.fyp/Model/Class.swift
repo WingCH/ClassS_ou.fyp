@@ -14,6 +14,7 @@ class Class: Codable {
     let duration: Duration
     let id, introduction, name, teacherId: String
     
+    
     enum CodingKeys: String, CodingKey {
         case students = "Students"
         case bgUrl, duration, id, introduction, name, teacherId

@@ -55,12 +55,14 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
             }
             <<< TextRow("Email") {
                 $0.title = FormItems.AccountEmail
-                $0.value = user.email
+                $0.value = "user.email"
+//                $0.value = "g1122334@study.ouhk.edu.hk"
                 $0.disabled = true
             }
             <<< TextRow("UserName") {
                 $0.title = FormItems.AccountUserName
                 $0.value = user.name
+//                $0.value = "Chun Yin"
                 $0.disabled = true
         }
         
@@ -174,7 +176,7 @@ class RegisterViewController: FormViewController,NVActivityIndicatorViewable {
                                                     
                                                     if let _ = data![0]["faceId"].string {
                                                         DispatchQueue.main.async {
-                                                            row.title = "Sccuess"
+                                                            row.title = "Success"
                                                             row.disabled = true
                                                             row.evaluateDisabled()
                                                             row.reload()

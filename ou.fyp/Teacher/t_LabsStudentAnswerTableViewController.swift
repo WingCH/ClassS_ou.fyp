@@ -14,6 +14,7 @@ class t_Student_Answer: UITableViewCell{
     @IBOutlet weak var question: UILabel!
     @IBOutlet weak var answer: UILabel!
     
+    
 }
 
 class t_LabsStudentAnswerTableViewController: UITableViewController {

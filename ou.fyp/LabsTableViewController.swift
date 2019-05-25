@@ -12,6 +12,8 @@ class LabCell: UITableViewCell {
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var status: UILabel!
+    @IBOutlet weak var comment: UILabel!
+    
     
 }
 
@@ -75,6 +77,8 @@ class LabsTableViewController: UITableViewController {
             cell.status.text = "done"
             cell.enable(on: false)
         }
+        
+        cell.comment.text = labs[indexPath.row].comment
 
         return cell
     }

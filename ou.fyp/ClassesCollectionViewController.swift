@@ -101,12 +101,12 @@ class ClassesCollectionViewController: UIViewController, UICollectionViewDelegat
             
             let tabCtrl: UITabBarController = segue.destination as! UITabBarController
             
-//            let destinationVC = tabCtrl.viewControllers![0] as! AttendanceCollectionViewController
-//            destinationVC.classID = classes[row].id
-//            destinationVC.duration = classes[row].duration
-            
             let labControllers = tabCtrl.viewControllers![0] as! LabsTableViewController
             labControllers.classId = classes[row].id
+            
+            let wishTreeControllers = tabCtrl.viewControllers![1] as! WishTreeViewController
+            
+            wishTreeControllers.classId = classes[row].id
             
         }
     }

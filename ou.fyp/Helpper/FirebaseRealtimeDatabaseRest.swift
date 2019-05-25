@@ -308,7 +308,82 @@ class FirebaseRealtimeDatabaseRest: NSObject {
         }catch let error{
             print(error)
         }
-        
-        
     }
+    
+    func wishTree(studentId:String, context:String, classId:String, result:@escaping (String?, Error?)->()) {
+        
+        let parameters = [
+            "studentId": studentId,
+            "context": context,
+            "classId": classId
+            ] as [String : Any]
+        
+        do {
+           let postData = try JSONSerialization.data(withJSONObject: parameters, options: [])
+            
+            let request = NSMutableURLRequest(url: NSURL(string: "https://ouhkface-89b5c.firebaseio.com/WishTree.json")! as URL,
+                                              cachePolicy: .useProtocolCachePolicy,
+                                              timeoutInterval: 10.0)
+            
+            request.httpMethod = "POST"
+            request.httpBody = postData as Data
+            
+            let session = URLSession.shared
+            let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (_, response, error) -> Void in
+                
+                if let httpResponse = response as? HTTPURLResponse {
+                    print("Status code: (\(httpResponse.statusCode))")
+                    result(String(httpResponse.statusCode),nil)
+                }else{
+                    result(nil,error)
+                }
+            })
+            
+            dataTask.resume()
+
+        } catch  let error {
+            result(nil, error)
+        }
+    }
+    
+    func postNewLab(context:String, result:@escaping (String?, Error?)->()) {
+        
+        let data = context.data(using: .utf8)!
+        do {
+            if let parameters = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [Dictionary<String,Any>]
+            {
+                do{
+                    let postData = try JSONSerialization.data(withJSONObject: parameters[0], options: [])
+                    
+                    let request = NSMutableURLRequest(url: NSURL(string: "https://ouhkface-89b5c.firebaseio.com/Lab.json")! as URL,
+                                                      cachePolicy: .useProtocolCachePolicy,
+                                                      timeoutInterval: 10.0)
+                    request.httpMethod = "POST"
+
+                    request.httpBody = postData as Data
+                    
+                    let session = URLSession.shared
+                    let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+                        if (error != nil) {
+                            result(nil, error)
+                        } else {
+                            result("ok", nil)
+                        }
+                    })
+                    
+                    dataTask.resume()
+                    
+                }catch let error{
+                    result(nil, error)
+                }
+            } else {
+                result("badJson", nil)
+            }
+        } catch let error as NSError {
+            result(nil, error)
+        }
+        
+
+    }
+    
 }

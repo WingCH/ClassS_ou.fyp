@@ -107,6 +107,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="bza-5f-v4z" kind="relationship" relationship="viewControllers" id="suW-v8-Was"/>
+                        <segue destination="20b-dj-VD2" kind="relationship" relationship="viewControllers" id="yHg-f5-RDz"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z5R-Ju-Jki" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -294,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yss-qB-i7m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3607" y="1957"/>
+            <point key="canvasLocation" x="3454" y="1957"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Bqe-O7-cCU">
@@ -307,7 +308,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="4Mf-qa-oqS" kind="relationship" relationship="viewControllers" id="65A-R2-vjD"/>
-                        <segue destination="y1B-AM-p3K" kind="relationship" relationship="viewControllers" id="F0X-hh-0o9"/>
+                        <segue destination="y1B-AM-p3K" kind="relationship" relationship="viewControllers" id="uf8-26-vd1"/>
                         <segue destination="BMH-SF-a03" kind="relationship" relationship="viewControllers" id="pKF-1k-aay"/>
                     </connections>
                 </tabBarController>
@@ -343,6 +344,13 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CrE-Rl-nfS">
+                                            <rect key="frame" x="35" y="53" width="304" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="pMe-ue-5Jj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bTG-Wg-SSY" secondAttribute="trailing" constant="8" symbolic="YES" id="9td-En-xmQ"/>
@@ -355,6 +363,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="comment" destination="CrE-Rl-nfS" id="vDk-Qx-p5n"/>
                                     <outlet property="name" destination="bTG-Wg-SSY" id="QIm-3n-a70"/>
                                     <outlet property="status" destination="pMe-ue-5Jj" id="nYh-NM-tL1"/>
                                 </connections>
@@ -372,7 +381,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lqj-8c-nkf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3444" y="363"/>
+            <point key="canvasLocation" x="3454" y="-164"/>
         </scene>
         <!--Question View Controller-->
         <scene sceneID="6eB-AO-QjI">
@@ -502,7 +511,54 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UVR-P3-Fdo" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4303" y="363"/>
+            <point key="canvasLocation" x="4308" y="-164"/>
+        </scene>
+        <!--Wish-->
+        <scene sceneID="gY9-nq-4iZ">
+            <objects>
+                <viewController id="20b-dj-VD2" customClass="WishTreeViewController" customModule="ou_fyp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FbL-3m-M61">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wishTree" translatesAutoresizingMaskIntoConstraints="NO" id="jYA-2q-xQA">
+                                <rect key="frame" x="0.0" y="223" width="375" height="307"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write some wish!!!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WHM-WU-ye5">
+                                <rect key="frame" x="27" y="623" width="320" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="wishText:" destination="uZo-t5-P9k" eventType="editingDidEnd" id="91x-V0-twx"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8J-fO-2ia">
+                                <rect key="frame" x="132" y="674" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Wish">
+                                    <color key="titleColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goWish:" destination="20b-dj-VD2" eventType="touchUpInside" id="aKW-wi-mqi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Xxk-fP-3gM"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Wish" image="treeicon" selectedImage="treeicon" id="VdZ-Om-8L6"/>
+                    <connections>
+                        <outlet property="wishText" destination="WHM-WU-ye5" id="ufV-6P-afw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zdR-MQ-BXW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="uZo-t5-P9k" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3453.5999999999999" y="661.33004926108379"/>
         </scene>
         <!--Class-->
         <scene sceneID="U8h-Zn-PG0">
@@ -708,6 +764,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KgY-W6-JZ5">
+                            <rect key="frame" x="0.0" y="108" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Add Lab"/>
+                            <connections>
+                                <segue destination="AgX-CS-J3C" kind="show" id="2jH-9d-Lgx"/>
+                            </connections>
+                        </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="80" id="dDG-qQ-NpR" customClass="t_LabCell" customModule="ou_fyp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
@@ -750,14 +814,92 @@
                             <outlet property="delegate" destination="y1B-AM-p3K" id="5h4-K1-QNa"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Lab" image="lab" id="QUn-2m-TGr"/>
+                    <tabBarItem key="tabBarItem" title="Lab" image="lab" id="TsU-6F-VcO"/>
                     <connections>
                         <segue destination="xYK-LN-fjU" kind="show" identifier="toLabsRecord" id="wX4-vr-iZE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DHQ-wU-8Gx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2709.5999999999999" y="1956.6502463054187"/>
+            <point key="canvasLocation" x="2710" y="1957"/>
+        </scene>
+        <!--Post Lab View Controller-->
+        <scene sceneID="xJA-Yo-dfc">
+            <objects>
+                <viewController id="AgX-CS-J3C" customClass="t_PostLabViewController" customModule="ou_fyp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bdD-xe-otx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Wra-Ag-fUX">
+                                <rect key="frame" x="18" y="168" width="338" height="572"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <mutableString key="text">[  
+   {  
+      "classId":"COMPS456F",
+      "comment":"Read the question carefully.",
+      "name":"Lab 4",
+      "questions":[  
+         {  
+            "answer":[  
+               "old age",
+               "adolescence",
+               "infancy",
+               "school age"
+            ],
+            "question":"At what time of life does Erikson stage Industry vs. Inferiority occur?"
+         },
+         {  
+            "answer":[  
+               "Agape",
+               "Storge",
+               "Ludus",
+               "Pragma"
+            ],
+            "question":"A relationship based on a previous friendship that developed into lovers is characteristic of what love style?"
+         },
+         {  
+            "answer":[  
+               "Pragma",
+               "Agape",
+               "Storge",
+               "Ludus"
+            ],
+            "question":"Which love style does this example fir? I try to keep lover a little uncertain about my commitment to him/her"
+         }
+      ]
+   }
+]</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbr-nn-voQ">
+                                <rect key="frame" x="163" y="748" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submit:" destination="AgX-CS-J3C" eventType="touchUpInside" id="QaK-Xv-rrV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lab  Content (json format)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lX3-lp-nZI">
+                                <rect key="frame" x="18" y="136" width="227" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="sbP-RT-zXI"/>
+                    </view>
+                    <connections>
+                        <outlet property="context" destination="Wra-Ag-fUX" id="OWQ-XA-bef"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6xv-MF-Wuq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3464.8000000000002" y="2713.3004926108374"/>
         </scene>
         <!--Lasb Record Table View Controller-->
         <scene sceneID="Nkz-zo-6wK">
@@ -818,7 +960,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cos-cx-16L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2709.5999999999999" y="2660.8374384236454"/>
+            <point key="canvasLocation" x="2710" y="2713"/>
         </scene>
         <!--Labs Student Answer Table View Controller-->
         <scene sceneID="EwZ-eo-Zk4">
@@ -889,7 +1031,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eo4-NX-isp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2710" y="3375"/>
+            <point key="canvasLocation" x="2710" y="3479"/>
         </scene>
     </scenes>
     <resources>
@@ -899,8 +1041,10 @@
         <image name="icon" width="321" height="321"/>
         <image name="lab" width="25" height="25"/>
         <image name="logout" width="22" height="22"/>
+        <image name="treeicon" width="25" height="25"/>
+        <image name="wishTree" width="147.33332824707031" height="147.66667175292969"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lX6-rK-QXx"/>
+        <segue reference="NKT-44-zim"/>
     </inferredMetricsTieBreakers>
 </document>
